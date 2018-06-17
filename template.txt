@@ -1,0 +1,170 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Prithvi Prabhu</title>
+    <meta name="description" content="Prithvi Prabhu's Worldview">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="github-gist.css" />
+    <link href="https://fonts.googleapis.com/css?family=Fira+Mono" rel="stylesheet">
+    <!-- Place favicon.ico in the root directory -->
+    <style>
+        html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn,
+        em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table,
+        caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu,
+        nav, section, summary, time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            font-size: 100%;
+            vertical-align: baseline;
+            background: transparent;
+        }
+
+        body {
+            line-height: 1;
+        }
+
+        article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        blockquote,
+        q {
+            quotes: none;
+        }
+
+        blockquote:before,
+        blockquote:after,
+        q:before,
+        q:after {
+            content: '';
+            content: none;
+        }
+
+        a {
+            margin: 0;
+            padding: 0;
+            font-size: 100%;
+            vertical-align: baseline;
+            background: transparent;
+        }
+
+        ins {
+            background-color: #ff9;
+            color: #000;
+            text-decoration: none;
+        }
+
+        mark {
+            background-color: #ff9;
+            color: #000;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        del {
+            text-decoration: line-through;
+        }
+
+        abbr[title],
+        dfn[title] {
+            border-bottom: 1px dotted;
+            cursor: help;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        hr {
+            display: block;
+            height: 1px;
+            border: 0;
+            border-top: 1px solid #cccccc;
+            margin: 1em 0;
+            padding: 0;
+        }
+
+        input,
+        select {
+            vertical-align: middle;
+        }
+
+        /* Custom */
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "avenir next", "avenir", "helvetica neue", "helvetica", "ubuntu", "roboto", "noto", "segoe ui", "arial", sans-serif;
+            color: #111;
+        }
+
+        h1, h2, p, pre {
+            max-width: 440px;
+        }
+
+        h1 {
+            margin: 3.5rem auto 2.5rem;
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+        h2 {
+            margin: 4.5rem auto -0.75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            font-weight: 400;
+            border-bottom: 1px solid #111;
+            padding-bottom: 0.75rem;
+            box-sizing: border-box;
+        }
+
+        p {
+            margin: 1.5rem auto;
+            font-size: 1rem;
+            line-height: 1.5;
+            text-align: justify;
+        }
+        
+        p:last-child {
+            margin-bottom: 7.5rem;
+        }
+
+        a {
+            color: #111;
+            border-bottom: 1px solid #bfbcba;
+            text-decoration: none;
+            transition-property: color, border-color;
+            transition-duration: .1s;
+            transition-timing-function: ease-out;
+        }
+
+        a:hover {
+            border-color: #111;
+        }
+
+        pre {
+            margin: 1.5rem auto;
+            box-sizing: border-box;
+            padding-left: 0.7rem;
+            border-left: 1px solid #bbb;
+        }
+        code {
+            font-family: 'Fira Mono', monospace;
+            font-size: 0.7rem;
+            line-height: 1.1;
+        }
+    </style>
+</head>
+
+<body>
+#here#
+</body>
+</html>
