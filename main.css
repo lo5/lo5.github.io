@@ -1,0 +1,99 @@
+@import url("https://rsms.me/inter/inter-ui.css");
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+audio, canvas, iframe, img, svg, video {
+  vertical-align: middle;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* ============================= */
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #000;
+  -webkit-font-smoothing: antialiased;
+}
+
+article {
+  width: 545px;
+  margin:0px auto;
+  line-height: 1.666666;
+  padding: 2rem 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, b, strong {
+  font-weight: 600;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+h1 {
+  margin-bottom: 2rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  border-color: #000;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+
+}
+
+code {
+  font-family: 'Source Code Pro', monospace;
+  background-color: #f9f9f9;
+  white-space: pre-wrap;
+  padding: 0.25rem;
+}
