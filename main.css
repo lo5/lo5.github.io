@@ -59,10 +59,11 @@ body {
 }
 
 article {
-  width: 545px;
+  box-sizing: border-box;
+  max-width: 640px;
   margin:0px auto;
   line-height: 1.666666;
-  padding: 2rem 0;
+  padding: 2rem 1rem;
 }
 
 img {
@@ -79,7 +80,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  margin-bottom: 2rem;
+  margin: 3rem 0 2rem 0;
 }
 
 a {
@@ -88,12 +89,40 @@ a {
   border-color: #000;
   border-bottom-style: solid;
   border-bottom-width: 1px;
+}
 
+pre {
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+  padding: 1rem;
 }
 
 code {
   font-family: 'Source Code Pro', monospace;
-  background-color: #f9f9f9;
+}
+
+pre code {
   white-space: pre-wrap;
+}
+
+p code, li code, td code {
+  background-color: #f9f9f9;
   padding: 0.25rem;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 2rem;
+  text-indent: -1rem;
+}
+
+ul > li:before {
+  content: "–";
+  text-indent: -1rem;
+  margin-right: .5rem;
+}
+
+hr {
+  margin-top: 3rem;
 }
