@@ -6,3 +6,6 @@ run:
 
 watch:
 	while inotifywait -e close_write index.md; do make; done
+
+fswatch:
+	fswatch -o index.md | make

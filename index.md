@@ -1,4 +1,7 @@
+
 # Prithvi Prabhu
+
+<img alt='El P' src='elp.jpeg'/>
 
 I work at the intersection of computing and design to explore and invent new ways of interacting with information. I author software that makes it simple, fast, fun and easy to discover, interpret and communicate patterns in data.
 
@@ -15,9 +18,9 @@ I've founded or been an early engineer in three startups.
 
 I currently work at [H2O.ai](https://h2o.ai) (Mountain View, California) as Chief of Technology, a fancy title for "mostly programmer, programming" (10,000+ commits in Github since March 2014).
 
-I head the development of **[H2O Q](https://www.h2o.ai/h2o-q/)**, an analytical decision-support platform that involves several interesting technologies including real-time information visualization, search-driven exploratory data analysis, information retrieval and augmented analytics. H2O Q has a novel language-agnostic rapid application development system for authoring interactive real-time information displays and applications.
+I lead the development of **[H2O Wave](https://www.h2o.ai/products/h2o-wave/)**, an analytical decision-support platform that involves several interesting technologies including real-time information visualization, search-driven exploratory data analysis, information retrieval and augmented analytics. H2O Wave has a novel language-agnostic rapid application development system for authoring interactive real-time information displays and applications.
 
-I consider myself incredibly fortunate to be working with some of the [smartest](https://youtu.be/xAhQAYV5_PY?t=23) [people](https://twitter.com/CrunchingData/status/1187627135952769029) in machine learning, including [Leland Wilkinson](https://en.wikipedia.org/wiki/Leland_Wilkinson) of [Grammar of Graphics](https://www.springer.com/gp/book/9780387245447) fame, and hacker extraordinaire [Cliff Click](https://www.infoq.com/profile/Cliff-Click/), who have been a constant source of inspiration for almost everything I've done over the past decade.
+I consider myself incredibly fortunate to be working with some of the [smartest](https://youtu.be/xAhWaveAYV5_PY?t=23) [people](https://twitter.com/CrunchingData/status/1187627135952769029) in machine learning, including [Leland Wilkinson](https://en.wikipedia.org/wiki/Leland_Wilkinson) of [Grammar of Graphics](https://www.springer.com/gp/book/9780387245447) fame, and hacker extraordinaire [Cliff Click](https://www.infoq.com/profile/Cliff-Click/), who have been a constant source of inspiration for almost everything I've done over the past decade.
 
 In the past, I have been responsible for:
 
@@ -25,8 +28,8 @@ In the past, I have been responsible for:
 - **Driverless AI for Excel** - A native add-in for automatic machine learning in Microsoft Excel.
 - **[Flow](https://github.com/h2oai/h2o-flow)** - a [hybrid GUI + REPL](https://www.h2o.ai/blog/introducing-flow/) environment for exploratory data analysis and machine learning. You can see it in action [here](https://www.youtube.com/results?search_query=h2o+flow). There is also a [book](https://www.oreilly.com/library/view/practical-machine-learning/9781491964590/) about it.
 - **[Steam](http://docs.h2o.ai/steam/latest-stable/index.html)** - a platform for cluster management, experiment hosting/execution, model management and model deployment.
-- **Echo** - a real-time dashboard system (folded into H2O Q).
-- **Flux** - a rapid application development system (folded into H2O Q).
+- **Echo** - a real-time dashboard system (folded into H2O Wave).
+- **Flux** - a rapid application development system (folded into H2O Wave).
 - **[H2O.js](https://github.com/h2oai/h2o.js)** - a Javascript-to-Rapids transpiler for executing a subset of Javascript on H2O for machine learning at scale.
 - **[Lightning](https://github.com/h2oai/lightning)** - Statistical graphics library for browsers.
 - **[Play](http://play.h2o.ai/)** - On-demand H2O cloud provisioning and management on AWS.
