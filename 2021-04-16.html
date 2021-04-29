@@ -1,0 +1,52 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+
+<head>
+  <meta charset="utf-8">
+  <title>Wrong Technology / Apr 16, 2021 (Fri)</title>
+  <meta name="description" content="Prithvi Prabhu's homepage">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Apr 16, 2021 (Fri)">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://infov.is">
+  <meta property="og:image" content="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+  <meta name="theme-color" content="#fff">
+</head>
+
+<body>
+  <header>
+    <h1><a href='index.html'>Wrong Technology</a> / Apr 16, 2021 (Fri)</h1>
+    <div><a href='about.html'>About</a></div>
+  </header>
+  <article>
+    <h2>Done</h2>
+<ul>
+<li><i class='done'></i> Update setup instructions in contrib guide</li>
+<li><i class='done'></i> Simplify wave server-to-app forwarding and query handling</li>
+<li><i class='done'></i> Update protocol docs - how to interpret queries, etc.</li>
+<li><i class='done'></i> Lock down all requests to the app server by default</li>
+<li><i class='done'></i> Update protocol docs with new security info</li>
+<li><i class='done'></i> Update main docs with new app app security behavior</li>
+<li><i class='done'></i> Button icons PR</li>
+</ul>
+<h2>Notes</h2>
+<p>The app query-handling bits were carried over from the previous websocket-based implementation. The refactored version is bog-standard HTTP request handling. Should considerably simplify implementation when we hook up the R driver to <code>httpuv</code>. Also allows poking at the  app server using cURL/httpie/etc.</p>
+<p>The Python app server is now locked down using HTTP basic auth, by default (no opt out). The app server generates a new access key/secret pair on launch and passes it on to the Wave server during the handshake. Non-Wave-forwarded requests are denied.</p>
+
+  </article>
+  <footer>
+    <p><a href="https://github.com/lo5">Github</a> | <a href="https://www.linkedin.com/in/prithviprabhu/">LinkedIn</a> | <a href="https://twitter.com/CrunchingData">Twitter</a></p>
+    <p><a href="2021-04-16.md">Source</a></p>
+  </footer>
+</body>
+
+</html>

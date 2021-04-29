@@ -1,14 +1,14 @@
 <!doctype html>
 <html class="no-js" lang="">
-{{#if is_post}}{{set "heading" date}}{{/if}}
-{{#unless is_post}}{{set "heading" title}}{{/unless}}
+
+
 <head>
   <meta charset="utf-8">
-  <title>Wrong Technology / {{heading}}</title>
+  <title>Wrong Technology / Apr 14, 2021 (Wed)</title>
   <meta name="description" content="Prithvi Prabhu's homepage">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta property="og:title" content="{{heading}}">
+  <meta property="og:title" content="Apr 14, 2021 (Wed)">
   <meta property="og:type" content="website">
   <meta property="og:url" content="http://infov.is">
   <meta property="og:image" content="icon.png">
@@ -24,15 +24,22 @@
 
 <body>
   <header>
-    <h1><a href='index.html'>Wrong Technology</a> / {{heading}}</h1>
+    <h1><a href='index.html'>Wrong Technology</a> / Apr 14, 2021 (Wed)</h1>
     <div><a href='about.html'>About</a></div>
   </header>
   <article>
-    {{{markup}}}
+    <h2>Done</h2>
+<ul>
+<li><i class='done'></i> More back and forth / review on R driver</li>
+<li><i class='done'></i> Basic <code>wavegen</code> docs</li>
+</ul>
+<h2>Notes</h2>
+<p>R’s S3 vs R6 vs S4 is bothersome. Difficult to please everyone. Maybe the R driver will end up with both a OOP and a functional API that do the same things. Both parties can be happy that way. R’s lack of qualified imports is going to cause a lot of pain.</p>
+
   </article>
   <footer>
     <p><a href="https://github.com/lo5">Github</a> | <a href="https://www.linkedin.com/in/prithviprabhu/">LinkedIn</a> | <a href="https://twitter.com/CrunchingData">Twitter</a></p>
-    <p><a href="{{{source}}}">Source</a></p>
+    <p><a href="2021-04-14.md">Source</a></p>
   </footer>
 </body>
 

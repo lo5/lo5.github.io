@@ -1,126 +1,131 @@
-@import url("https://rsms.me/inter/inter-ui.css");
-
+:root {
+  --bg:  #282c34;
+  --bg2: #1a1d23;
+  --fg0: #ffffff;
+  --fg:  #abb2bf;
+  --fg2: #818896;
+  --fg3: #5c6370;
+  --acc: #39d1ff;
+  --sec: #2aafd8;
+  --width:  640px;
+}
 html {
-  background-color: #000;
-  color: #e6eaf3;
-  font-size: 1em;
-  line-height: 1.4;
+  background-color: var(--bg);
+  color: var(--fg);
 }
-
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-::selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #999;
-  margin: 1em 0;
-  padding: 0;
-  margin-top: 3rem;
-}
-
-audio, canvas, iframe, img, svg, video {
-  vertical-align: middle;
-}
-
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-
-textarea {
-  resize: vertical;
-}
-
-.clearfix::before,
-.clearfix::after {
-  content: " ";
-  display: table;
-}
-
-.clearfix::after {
-  clear: both;
-}
-
-/* ============================= */
-
 body {
   font-family: 'Inter', sans-serif;
-  font-size: 1rem;
   -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
 }
-
-article {
-  box-sizing: border-box;
-  max-width: 640px;
-  margin:0px auto;
-  line-height: 1.666666;
-  padding: 2rem 1rem;
+header {
+  max-width: var(--width);
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 1rem;
 }
-
+footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--fg3);
+  max-width: var(--width);
+  margin: 4rem 1rem 1rem;
+  font-size: 90%;
+}
+article>:not(pre){
+  max-width: var(--width);
+  margin: 1rem;
+}
+a {
+  text-decoration: none;
+}
+a:link {
+  color: var(--acc);
+  border-bottom: 1px solid var(--fg2);
+}
+a:visited {
+  color: var(--sec);
+  border-bottom-color: var(--fg3);
+}
+a:hover, a:active {
+  color: var(--fg0);
+  border-bottom-color: var(--fg3);
+}
 img {
   max-width: 100%;
 }
-
+h1 {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
 h1, h2, h3, h4, h5, h6, b, strong {
   font-weight: 600;
+  font-size: inherit;
+  line-height: inherit;
 }
-
-h1, h2, h3, h4, h5, h6 {
-  font-size: 1rem;
-  line-height: 1.5;
+h2 {
+  border-top: 1px solid var(--fg3);
+  margin-top: 3rem!important;
+  padding-top: 0.5rem;
 }
-
-h1 {
-  margin: 3rem 0 2rem 0;
+h3 {
+  color: var(--fg2);
 }
-
-a {
-  text-decoration: none;
-  color: inherit;
-  border-color: #b7bbc5;
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
+hr {
+  border: 0;
+  border-top: 1px solid var(--fg3);
+  height: 1px;
 }
-
-pre {
-  background-color: #f9f9f9;
-  box-sizing: border-box;
-  padding: 1rem;
-}
-
-code {
-  font-family: 'Source Code Pro', monospace;
-}
-
-pre code {
-  white-space: pre-wrap;
-}
-
-p code, li code, td code {
-  background-color: #f9f9f9;
-  padding: 0.25rem;
-}
-
 ul {
   list-style: none;
   margin: 0;
   padding-left: 2rem;
   text-indent: -1rem;
 }
-
-ul > li:before {
+ul>li:before {
   content: "–";
   text-indent: -1rem;
   margin-right: .5rem;
+}
+ul:hover s {
+  text-decoration: none;
+}
+code, pre {
+  background-color: var(--bg2);
+  color: var(--fg2);
+  font-family: 'JetBrains Mono', monospace;
+}
+p code, li code {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+pre {
+  font-size: 95%;
+  padding: 1rem;
+}
+pre code {
+  background-color: inherit;
+}
+li p {
+  display: inline;
+}
+.todo, .done {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border: 1px solid var(--fg);
+  position: relative;
+}
+.done:after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 3px;
+  width: 4px;
+  height: 8px;
+  border: solid var(--fg);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
 }
 

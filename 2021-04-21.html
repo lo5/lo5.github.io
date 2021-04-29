@@ -1,0 +1,80 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+
+<head>
+  <meta charset="utf-8">
+  <title>Wrong Technology / Apr 21, 2021 (Wed)</title>
+  <meta name="description" content="Prithvi Prabhu's homepage">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Apr 21, 2021 (Wed)">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://infov.is">
+  <meta property="og:image" content="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+  <meta name="theme-color" content="#fff">
+</head>
+
+<body>
+  <header>
+    <h1><a href='index.html'>Wrong Technology</a> / Apr 21, 2021 (Wed)</h1>
+    <div><a href='about.html'>About</a></div>
+  </header>
+  <article>
+    <h2>Done</h2>
+<ul>
+<li><i class='done'></i> Review R driver internals</li>
+</ul>
+<h2>Notes</h2>
+<p>We need Python-equivalent:</p>
+<ul>
+<li><code>site = Site('http://example.com')</code> (grabbing a reference to a site)</li>
+<li><code>page = site['/foo/bar']</code> (grabbing a reference to a page in the site)</li>
+<li><code>site.upload(...)</code>, <code>site.unload(...)</code>, <code>site.download(...)</code> (site manipulation)</li>
+</ul>
+<p>Post-implementation, the following should be possible:</p>
+<p>Manipulate multiple pages from the same site:</p>
+<pre><code>s &lt;- .Site$new('http://foo.com')
+p1 &lt;- s$get('/stats/cricket') # mints a new page from the site s
+p2 &lt;- s$get('/stats/hockey') # mints another page from the site s
+p1$set(....)
+p2$set(....)
+</code></pre>
+<p>Manipulate multiple pages on multiple sites:</p>
+<pre><code>s1 &lt;- .Site$new('http://foo.com')
+p1 &lt;- s1$get('/stats/cricket')
+s2 &lt;- .Site.new('http://bar.com')
+p2 &lt;- s2$get('/stats/hockey')
+p1$set(....)
+p2$set(....)
+</code></pre>
+<p>Manipulate multiple sites:</p>
+<pre><code>s1 &lt;- .Site$new('http://foo.com')
+s1$upload('cricket_scores.csv')
+s2 &lt;- .Site.new('http://bar.com')
+s2$upload('hockey_scores.csv')
+</code></pre>
+<p>The python driver exports both <code>site</code> (noun) and <code>Site</code> (verb / constructor).</p>
+<p>Difference is: <code>Site()</code> mints a new instance of a site, and <code>site</code> is shorthand for a <code>Site()</code> that already points to <code>$H2O_WAVE_ADDRESS</code> using <code>$H2O_WAVE_ACCESS_KEY_ID</code>/<code>$H2O_WAVE_ACCESS_KEY_SECRET</code> for auth.</p>
+<p>So for now, it’s fine to not expose the R6 <code>Site()</code> in the API, but structure the API in a way that let’s us demonstrate the 3 examples above in a future release.</p>
+<p>In other words: only export a pre-created <code>site</code>, and the <code>$get</code> on the <code>site</code> to get an instance of the page, and we can do the <code>Site()</code> part later.more notes:</p>
+<p>The python driver exports both <code>site</code> (noun) and <code>Site</code> (verb / constructor).</p>
+<p>Difference is: <code>Site()</code> mints a new instance of a site, and <code>site</code> is shorthand for a <code>Site()</code> that already points to <code>$H2O_WAVE_ADDRESS</code> using <code>$H2O_WAVE_ACCESS_KEY_ID</code>/<code>$H2O_WAVE_ACCESS_KEY_SECRET</code> for auth.</p>
+<p>So for now, it’s fine to not expose the R6 <code>Site()</code> in the API, but structure the API in a way that let’s us demonstrate the 3 examples above in a future release.</p>
+<p>In other words: only export a pre-created <code>site</code>, and the <code>$get</code> on the <code>site</code> to get an instance of the page, and we can do the <code>Site()</code> part later.</p>
+
+  </article>
+  <footer>
+    <p><a href="https://github.com/lo5">Github</a> | <a href="https://www.linkedin.com/in/prithviprabhu/">LinkedIn</a> | <a href="https://twitter.com/CrunchingData">Twitter</a></p>
+    <p><a href="2021-04-21.md">Source</a></p>
+  </footer>
+</body>
+
+</html>

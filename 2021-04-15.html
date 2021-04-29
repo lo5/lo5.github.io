@@ -1,14 +1,14 @@
 <!doctype html>
 <html class="no-js" lang="">
-{{#if is_post}}{{set "heading" date}}{{/if}}
-{{#unless is_post}}{{set "heading" title}}{{/unless}}
+
+
 <head>
   <meta charset="utf-8">
-  <title>Wrong Technology / {{heading}}</title>
+  <title>Wrong Technology / Apr 15, 2021 (Thu)</title>
   <meta name="description" content="Prithvi Prabhu's homepage">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta property="og:title" content="{{heading}}">
+  <meta property="og:title" content="Apr 15, 2021 (Thu)">
   <meta property="og:type" content="website">
   <meta property="og:url" content="http://infov.is">
   <meta property="og:image" content="icon.png">
@@ -24,15 +24,22 @@
 
 <body>
   <header>
-    <h1><a href='index.html'>Wrong Technology</a> / {{heading}}</h1>
+    <h1><a href='index.html'>Wrong Technology</a> / Apr 15, 2021 (Thu)</h1>
     <div><a href='about.html'>About</a></div>
   </header>
   <article>
-    {{{markup}}}
+    <h2>Done</h2>
+<ul>
+<li><i class='done'></i> Document app protocol</li>
+</ul>
+<h2>Notes</h2>
+<p>The <a href="https://github.com/h2oai/wave/tree/master/r">R driver</a> got built without any existing documentation on the wire protocol. Ashrith reverse-engineered it from the server logs, which was sub-optimal. The <a href="https://github.com/h2oai/wave/blob/master/protocol.md">app server protocol</a> is documented now.</p>
+<p>Seems like the folks at Packt publishing are reaching out to everyone involved for a Wave book. Improving our publicly available docs, tutorials and examples would be a better use of our time, at least during 2021. Also, we’d need two books now - Python and R :)</p>
+
   </article>
   <footer>
     <p><a href="https://github.com/lo5">Github</a> | <a href="https://www.linkedin.com/in/prithviprabhu/">LinkedIn</a> | <a href="https://twitter.com/CrunchingData">Twitter</a></p>
-    <p><a href="{{{source}}}">Source</a></p>
+    <p><a href="2021-04-15.md">Source</a></p>
   </footer>
 </body>
 

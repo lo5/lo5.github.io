@@ -1,11 +1,14 @@
 all:
-	node make.js
+	./node_modules/.bin/coffee make.coffee
+
+setup:
+	npm ci
 
 run:
 	./node_modules/.bin/browser-sync start --server --files "*.html, *.css"
 
-watch:
-	while inotifywait -e close_write index.md; do make; done
+done:
+	./node_modules/.bin/coffee done.coffee
 
-fswatch:
-	fswatch -o index.md | make
+watch:
+	while inotifywait -e close_write *.md template.html make.coffee; do make; done

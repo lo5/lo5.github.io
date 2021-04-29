@@ -1,14 +1,14 @@
 <!doctype html>
 <html class="no-js" lang="">
-{{#if is_post}}{{set "heading" date}}{{/if}}
-{{#unless is_post}}{{set "heading" title}}{{/unless}}
+
+
 <head>
   <meta charset="utf-8">
-  <title>Wrong Technology / {{heading}}</title>
+  <title>Wrong Technology / Apr 22, 2021 (Thu)</title>
   <meta name="description" content="Prithvi Prabhu's homepage">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta property="og:title" content="{{heading}}">
+  <meta property="og:title" content="Apr 22, 2021 (Thu)">
   <meta property="og:type" content="website">
   <meta property="og:url" content="http://infov.is">
   <meta property="og:image" content="icon.png">
@@ -24,15 +24,28 @@
 
 <body>
   <header>
-    <h1><a href='index.html'>Wrong Technology</a> / {{heading}}</h1>
+    <h1><a href='index.html'>Wrong Technology</a> / Apr 22, 2021 (Thu)</h1>
     <div><a href='about.html'>About</a></div>
   </header>
   <article>
-    {{{markup}}}
+    <h2>Done</h2>
+<ul>
+<li><i class='done'></i> Merge R driver :)</li>
+<li><i class='done'></i> R-base docker image</li>
+<li><i class='done'></i> R driver build dockerfile</li>
+</ul>
+<h2>Notes</h2>
+<p>Docker on Arch needs additional configuration to get working properly. Containers can’t use host networking by default.</p>
+<p>Add this:</p>
+<pre><code>$ cat /etc/docker/daemon.json
+{ &quot;dns&quot;: [ &quot;8.8.8.8&quot;, &quot;8.8.4.4&quot; ] }
+</code></pre>
+<p>Now containers with <code>--network host</code> work as expected.</p>
+
   </article>
   <footer>
     <p><a href="https://github.com/lo5">Github</a> | <a href="https://www.linkedin.com/in/prithviprabhu/">LinkedIn</a> | <a href="https://twitter.com/CrunchingData">Twitter</a></p>
-    <p><a href="{{{source}}}">Source</a></p>
+    <p><a href="2021-04-22.md">Source</a></p>
   </footer>
 </body>
 

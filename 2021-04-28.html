@@ -1,0 +1,72 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+
+<head>
+  <meta charset="utf-8">
+  <title>Wrong Technology / Apr 28, 2021 (Wed)</title>
+  <meta name="description" content="Prithvi Prabhu's homepage">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Apr 28, 2021 (Wed)">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://infov.is">
+  <meta property="og:image" content="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+  <meta name="theme-color" content="#fff">
+</head>
+
+<body>
+  <header>
+    <h1><a href='index.html'>Wrong Technology</a> / Apr 28, 2021 (Wed)</h1>
+    <div><a href='about.html'>About</a></div>
+  </header>
+  <article>
+    <h2>Done</h2>
+<ul>
+<li><i class='done'></i> 0.14 release</li>
+<li><i class='done'></i> Push R package to releases</li>
+<li><i class='done'></i> Use node 15 instead of upgrading npm to 7</li>
+<li><i class='done'></i> Merge FE tests and build into one job</li>
+<li><i class='done'></i> Use go 1.16 (ioutil deprecation failures)</li>
+<li><i class='done'></i> 0.14 release blog post</li>
+<li><i class='done'></i> 0.14 Tweet</li>
+<li><i class='done'></i> Add docs preview task to Makefile</li>
+<li><i class='done'></i> R driver release blog post</li>
+<li><i class='done'></i> Add R language support to readme</li>
+</ul>
+<h2>Notes</h2>
+<p>CI warnings on node 15</p>
+<pre><code>npm ci
+npm WARN deprecated rollup-plugin-babel@4.4.0: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-babel.
+npm WARN deprecated babel-eslint@10.1.0: babel-eslint is now @babel/eslint-parser. This package will no longer receive updates.
+npm WARN deprecated chokidar@2.1.8: Chokidar 2 will break on node v14+. Upgrade to chokidar 3 with 15x less dependencies.
+</code></pre>
+<p>CI pip install warnings</p>
+<pre><code>./venv/bin/python -m pip install h2o_wave_ml/
+...
+Using legacy 'setup.py install' for h2o-wave-ml, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for h2o, since package 'wheel' is not installed.
+Using legacy 'setup.py install' for future, since package 'wheel' is not installed.
+</code></pre>
+<p>R package build requires work. Currently:</p>
+<pre><code>cd git/h2oai/wave/r
+sudo docker build -t waver --network host .
+sudo docker run -it --network host -v ~/temp:/temp waver bash
+cp wave/r/*.tar.gz /temp/
+</code></pre>
+
+  </article>
+  <footer>
+    <p><a href="https://github.com/lo5">Github</a> | <a href="https://www.linkedin.com/in/prithviprabhu/">LinkedIn</a> | <a href="https://twitter.com/CrunchingData">Twitter</a></p>
+    <p><a href="2021-04-28.md">Source</a></p>
+  </footer>
+</body>
+
+</html>

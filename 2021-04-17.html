@@ -1,0 +1,66 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+
+<head>
+  <meta charset="utf-8">
+  <title>Wrong Technology / Apr 17, 2021 (Sat)</title>
+  <meta name="description" content="Prithvi Prabhu's homepage">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Apr 17, 2021 (Sat)">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://infov.is">
+  <meta property="og:image" content="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+  <meta name="theme-color" content="#fff">
+</head>
+
+<body>
+  <header>
+    <h1><a href='index.html'>Wrong Technology</a> / Apr 17, 2021 (Sat)</h1>
+    <div><a href='about.html'>About</a></div>
+  </header>
+  <article>
+    <h2>Done</h2>
+<ul>
+<li><i class='done'></i> Fix OS on workstation</li>
+</ul>
+<h2>Notes</h2>
+<p>Pop_OS (or Ubuntu?) driver update hosed gnome terminal late yesterday, started redrawing on every other keystroke (?); made vi unusable.</p>
+<p>Wanted to switch to Arch for a couple of years now, and this was as good a tipping point as any.</p>
+<p>Installation was straightforward, except that the base install does not include everything that the liveUSB ships with, notably network management. Realized this too late, after the post-install reboot. The workstation is not hard-wired, and no <code>iwd</code> was installed. Had to reboot from liveUSB again to get <code>iwd</code>, then use <code>iwctl</code> to scan/connect to the station.</p>
+<p>Pacman commands not immediately obvious from manpage:</p>
+<pre><code># search packages for foo
+$ pacman -Ss foo
+
+# search local packages for foo
+$ pacman -Qs foo
+
+# info on package foo
+$ pacman -Si foo
+
+# info on local package foo
+$ pacman -Qi foo
+
+# search for packages that provide foo
+$ pacman -F foo
+
+# what have I explicitly installed?
+$ pacman -Qe
+</code></pre>
+
+  </article>
+  <footer>
+    <p><a href="https://github.com/lo5">Github</a> | <a href="https://www.linkedin.com/in/prithviprabhu/">LinkedIn</a> | <a href="https://twitter.com/CrunchingData">Twitter</a></p>
+    <p><a href="2021-04-17.md">Source</a></p>
+  </footer>
+</body>
+
+</html>
