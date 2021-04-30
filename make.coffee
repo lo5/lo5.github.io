@@ -11,7 +11,7 @@ parse_date = (x) ->
   [y, m, d] = x.split('-').map (x) -> parseInt x
   new Date y, m-1, d
 caps = (x) ->
-  x.replace /(\.\s+)(\w)/g, (_, s, c) -> s + c.toUpperCase()
+  x.replace /([\.\?\!]\s+)(\w)/g, (_, s, c) -> s + c.toUpperCase()
   .replace /^(\w)/, (_, c) -> c.toUpperCase()
 
 files = fs.readdirSync('.')
