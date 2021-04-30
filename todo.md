@@ -1,12 +1,11 @@
 # TODO
-
+. display full-size screencap in docs/examples (no plans to host tour publicly)
 . document wire protocol
 . remove docs from history
 . python needs the `Site(url)` ctor (ref 2020 API)
 . R API is a bit wonky: `Site()` produces a page instead of a site
 . website: npm audit
 . point docs publish GH action to AWS
-. update `r/DESCRIPTION` with active version during git tag
 . automate R packaging
 . fix CI warnings on node 15
 . fix WaveML `Using legacy 'setup.py install'` pip install warnings
@@ -14,7 +13,6 @@
 . whack-a-mole sample app
 . custom icon support - prefix icon with pack name
 . osquery based examples https://github.com/osquery/osquery
-. BUG [File Upload is not working in 0.14](https://github.com/h2oai/wave/issues/771)
 . BUG [Way to prevent \"httpx.ReadTimeout\"](https://github.com/h2oai/wave/issues/756)
 . BUG [Events plot selects the full data series, when it is a line. ](https://github.com/h2oai/wave/issues/738)
 . BUG [Form card with height of 1 overflows if a single ui.stat is used](https://github.com/h2oai/wave/issues/723)
@@ -29,18 +27,16 @@
 . BUG [Table content overlaps when we use height and tooltip together](https://github.com/h2oai/wave/issues/326)
 . BUG [Authentication cookies are blocked on Same Site requests. Breaks D3 example](https://github.com/h2oai/wave/issues/189)
 . BUG [Textbox with trigger=true clears itself after submitting value](https://github.com/h2oai/wave/issues/150)
-. PR [updated r version](https://github.com/h2oai/wave/pull/770)
-. PR [Switch Tour to flex layout](https://github.com/h2oai/wave/pull/753)
 . PR [feat: clipboard component #194](https://github.com/h2oai/wave/pull/749)
-. PR [Candidate alternative strategy for front-end state management 2](https://github.com/h2oai/wave/pull/746)
 . PR [feat: annotator component #227](https://github.com/h2oai/wave/pull/737)
-. PR [feat: generated docs showcase #699](https://github.com/h2oai/wave/pull/726)
-. PR [test: Testcases for Submit command value when clicked, if available ](https://github.com/h2oai/wave/pull/717)
 . PR [feat: compact file upload #623](https://github.com/h2oai/wave/pull/716)
+. PR [fix: stretch slider for available space #582](https://github.com/h2oai/wave/pull/586)
+. PR [feat(dropdown): display a dialog with filtering for > 100 choices](https://github.com/h2oai/wave/pull/303)
+. PR [Switch Tour to flex layout](https://github.com/h2oai/wave/pull/753)
+. PR [Candidate alternative strategy for front-end state management 2](https://github.com/h2oai/wave/pull/746)
+. PR [feat: generated docs showcase #699](https://github.com/h2oai/wave/pull/726)
 . PR [User defined themes](https://github.com/h2oai/wave/pull/604)
 . PR [Spinbox trigger attr](https://github.com/h2oai/wave/pull/598)
-. PR [fix: stretch slider for available space #582](https://github.com/h2oai/wave/pull/586)
-. PR [feat: wide info card](https://github.com/h2oai/wave/pull/585)
 . PR [Nav initial_value prop](https://github.com/h2oai/wave/pull/566)
 . PR [Pycharm snippets](https://github.com/h2oai/wave/pull/561)
 . PR [Feat/visual testing ci](https://github.com/h2oai/wave/pull/531)
@@ -53,11 +49,10 @@
 . PR [Sort Table Values when grouped](https://github.com/h2oai/wave/pull/360)
 . PR [feat: add ability to show/hide legend for plots #351](https://github.com/h2oai/wave/pull/358)
 . PR [feat: allow submitting text phrases within markdown](https://github.com/h2oai/wave/pull/316)
-. PR [feat(dropdown): display a dialog with filtering for > 100 choices](https://github.com/h2oai/wave/pull/303)
 . PR [IDE UI](https://github.com/h2oai/wave/pull/278)
 . PR [Update blocking overlay for css only solution](https://github.com/h2oai/wave/pull/275)
 . PR [feat: automatic breadcrumbs recalculation based on url hash #171](https://github.com/h2oai/wave/pull/209)
-
+. [Improvements to R site/page API](https://github.com/h2oai/wave/issues/773)
 . [Re-trigger hash routing](https://github.com/h2oai/wave/issues/769)
 . [Display front-end errors/stack-traces in Python/R console](https://github.com/h2oai/wave/issues/758)
 . [OIDC q.auth details](https://github.com/h2oai/wave/issues/745)
@@ -92,7 +87,6 @@
 . [Allow handling events using @on annotations](https://github.com/h2oai/wave/issues/627)
 . [file_upload component - Need a simple button like file_upload component](https://github.com/h2oai/wave/issues/623)
 . [file upload is not returning from page load](https://github.com/h2oai/wave/issues/619)
-. [Preview release of R client](https://github.com/h2oai/wave/issues/612)
 . [Add support for detecting idle apps](https://github.com/h2oai/wave/issues/608)
 . [Add Ability to Turn Off Spellcheck](https://github.com/h2oai/wave/issues/606)
 . [Add Select All for Table Filter](https://github.com/h2oai/wave/issues/602)
