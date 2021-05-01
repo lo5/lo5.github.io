@@ -1,4 +1,5 @@
 # TODO
+. check if wide info cards looks proper in-context
 . display full-size screencap in docs/examples (no plans to host tour publicly)
 . document wire protocol
 . remove docs from history
@@ -13,14 +14,12 @@
 . whack-a-mole sample app
 . custom icon support - prefix icon with pack name
 . osquery based examples https://github.com/osquery/osquery
+. make commands support URLs/paths? [#](https://github.com/h2oai/wave/discussions/764)
 . BUG [Way to prevent \"httpx.ReadTimeout\"](https://github.com/h2oai/wave/issues/756)
 . BUG [Events plot selects the full data series, when it is a line. ](https://github.com/h2oai/wave/issues/738)
 . BUG [Form card with height of 1 overflows if a single ui.stat is used](https://github.com/h2oai/wave/issues/723)
-. BUG [Command values are not submitted to the server when specified](https://github.com/h2oai/wave/issues/661)
 . BUG [Formatting works only for the first ui.mark in ui.plot(marks=[...])](https://github.com/h2oai/wave/issues/617)
-. BUG [Error in deserializing FormCard type using `load`](https://github.com/h2oai/wave/issues/607)
 . BUG [Slider does not work with ui.inline](https://github.com/h2oai/wave/issues/582)
-. BUG [Examples Tour yields errors in multi container setup due to references to 127.0.0.1](https://github.com/h2oai/wave/issues/498)
 . BUG [Visible prop on textbox not working](https://github.com/h2oai/wave/issues/484)
 . BUG [Trailing slash breaks routing in docs website](https://github.com/h2oai/wave/issues/445)
 . BUG [iFrame with OpenID protected website cannot connect](https://github.com/h2oai/wave/issues/361)
@@ -53,6 +52,7 @@
 . PR [Update blocking overlay for css only solution](https://github.com/h2oai/wave/pull/275)
 . PR [feat: automatic breadcrumbs recalculation based on url hash #171](https://github.com/h2oai/wave/pull/209)
 . [Improvements to R site/page API](https://github.com/h2oai/wave/issues/773)
+. [Improve error message if file upload fails](https://github.com/h2oai/wave/issues/772)
 . [Re-trigger hash routing](https://github.com/h2oai/wave/issues/769)
 . [Display front-end errors/stack-traces in Python/R console](https://github.com/h2oai/wave/issues/758)
 . [OIDC q.auth details](https://github.com/h2oai/wave/issues/745)
@@ -167,7 +167,6 @@
 . [Allow actions on table](https://github.com/h2oai/wave/issues/215)
 . [Allow specifying groupable columns in ui.table](https://github.com/h2oai/wave/issues/203)
 . [Copy to clipboard button](https://github.com/h2oai/wave/issues/194)
-. [Add ui.image() API](https://github.com/h2oai/wave/issues/191)
 . [Make Breadcrumbs component respond to url changes](https://github.com/h2oai/wave/issues/171)
 . [Provide FRP / reactive programming primitives in Python SDK](https://github.com/h2oai/wave/issues/170)
 . [Allow form components to be shown/hidden in groups](https://github.com/h2oai/wave/issues/156)
