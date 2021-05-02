@@ -1,4 +1,5 @@
 # TODO
+. add image to component docs.
 . check if wide info cards looks proper in-context
 . display full-size screencap in docs/examples (no plans to host tour publicly)
 . document wire protocol
@@ -31,7 +32,6 @@
 . PR [feat: compact file upload #623](https://github.com/h2oai/wave/pull/716)
 . PR [fix: stretch slider for available space #582](https://github.com/h2oai/wave/pull/586)
 . PR [feat(dropdown): display a dialog with filtering for > 100 choices](https://github.com/h2oai/wave/pull/303)
-. PR [Switch Tour to flex layout](https://github.com/h2oai/wave/pull/753)
 . PR [Candidate alternative strategy for front-end state management 2](https://github.com/h2oai/wave/pull/746)
 . PR [feat: generated docs showcase #699](https://github.com/h2oai/wave/pull/726)
 . PR [User defined themes](https://github.com/h2oai/wave/pull/604)
@@ -51,6 +51,7 @@
 . PR [IDE UI](https://github.com/h2oai/wave/pull/278)
 . PR [Update blocking overlay for css only solution](https://github.com/h2oai/wave/pull/275)
 . PR [feat: automatic breadcrumbs recalculation based on url hash #171](https://github.com/h2oai/wave/pull/209)
+. [Improvements to tour.py](https://github.com/h2oai/wave/issues/776)
 . [Improvements to R site/page API](https://github.com/h2oai/wave/issues/773)
 . [Improve error message if file upload fails](https://github.com/h2oai/wave/issues/772)
 . [Re-trigger hash routing](https://github.com/h2oai/wave/issues/769)
