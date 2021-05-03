@@ -13,5 +13,5 @@ done:
 watch:
 	while inotifywait -e close_write *.md template.html make.coffee; do make; done
 
-push:
+push: all
 	git add . && git commit -m . && git push
