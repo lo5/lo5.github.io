@@ -1,4 +1,6 @@
 # TODO
+. connect() in browser module shouldn't accept `/_s`
+. rename -B suffix from public APIs
 . add image to component docs.
 . check if wide info cards looks proper in-context
 . display full-size screencap in docs/examples (no plans to host tour publicly)

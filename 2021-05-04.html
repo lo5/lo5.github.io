@@ -1,0 +1,155 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+
+<head>
+  <meta charset="utf-8">
+  <title>Wrong Technology / May 04, 2021 (Tue)</title>
+  <meta name="description" content="Prithvi Prabhu's homepage">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="May 04, 2021 (Tue)">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://infov.is">
+  <meta property="og:image" content="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+  <meta name="theme-color" content="#fff">
+</head>
+
+<body>
+  <header>
+    <h1><a href='index.html'>Wrong Technology</a> / May 04, 2021 (Tue)</h1>
+    <div><a href='about.html'>About</a></div>
+  </header>
+  <article>
+    <h2>Done</h2>
+<ul>
+<li><i class='done'></i> Evaluate svelte, inferno, preact, marko</li>
+<li><i class='done'></i> Set up minimal handlebars-based front-end (~90KB): <a href="https://github.com/h2oai/wave/commit/6c4b40fa3ec2be8ea0f414512cafefeddc2ce189">#</a></li>
+<li><i class='done'></i> Review R app support</li>
+</ul>
+<h2>Notes</h2>
+<h3>Barebones webpack-typescript setup, 2021 edition</h3>
+<p>Setup:</p>
+<pre><code>$ npm init
+$ npm install --save-dev typescript webpack-cli ts-loader
+</code></pre>
+<p><code>tsconfig.json</code>:</p>
+<pre><code>{
+  &quot;compilerOptions&quot;: {
+    &quot;strict&quot;: true,
+    &quot;module&quot;: &quot;es6&quot;,
+    &quot;target&quot;: &quot;es5&quot;,
+    &quot;moduleResolution&quot;: &quot;node&quot;
+  }
+}
+</code></pre>
+<p><code>webpack.config.js</code>:</p>
+<pre><code>const path = require('path');
+
+module.exports = {
+  entry: './index.ts',
+  mode: 'production',
+  module: {
+    rules: [
+      {
+        test: /\.ts$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  resolve: {
+    extensions: ['.ts', '.js'],
+  },
+  output: {
+    filename: 'index.js',
+    path: path.resolve(__dirname),
+  },
+};
+</code></pre>
+<p><code>index.ts</code>:</p>
+<pre><code>const hello = () =&gt; {
+  const el = document.createElement('div')
+  el.innerText = 'Hello world!' 
+  return el
+}
+document.body.appendChild(hello())
+</code></pre>
+<p><code>index.html</code>:</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;Hello World&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;script src=&quot;index.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><code>package.json</code>:</p>
+<pre><code>...
+&quot;scripts&quot;: {
+  &quot;build&quot;: &quot;webpack&quot;,
+},
+...
+</code></pre>
+<p>Run:</p>
+<pre><code>$ npm run build
+</code></pre>
+<h3>Webpack + Handlebars issue</h3>
+<p>Webpack refuses to include Handlebars:</p>
+<pre><code>require.extensions is not supported by webpack. Use a loader instead.
+</code></pre>
+<p>Fix <code>webpack.config.js</code>:</p>
+<pre><code>resolve: {
+  ...
+  alias: {
+    'handlebars' : 'handlebars/dist/handlebars.js'
+  }
+  ...
+},
+</code></pre>
+<h3>Reduce executable size</h3>
+<pre><code>elp@ugh:~/git/h2oai/wave (master)
+$ make build-server
+go build -ldflags '-X main.Version=DEV -X main.BuildDate=20210504111002' -o waved cmd/wave/main.go
+
+elp@ugh:~/git/h2oai/wave (master)
+$ ll waved
+.rwxr-xr-x 9.9M elp  4 May 11:10 waved*
+
+elp@ugh:~/git/h2oai/wave (master)
+$ make build-server-micro
+go build -ldflags '-s -w -X main.Version=DEV -X main.BuildDate=20210504111028' -o waved cmd/wave/main.go
+upx --brute waved
+                       Ultimate Packer for eXecutables
+                          Copyright (C) 1996 - 2020
+UPX git-d7ba31+ Markus Oberhumer, Laszlo Molnar &amp; John Reiser   Jan 23rd 2020
+
+        File size         Ratio      Format      Name
+   --------------------   ------   -----------   -----------
+   7200768 -&gt;   2109020   29.29%   linux/amd64   waved
+
+Packed 1 file.
+
+elp@ugh:~/git/h2oai/wave (master)
+$ ll waved
+.rwxr-xr-x 2.1M elp  4 May 11:10 waved*
+</code></pre>
+
+  </article>
+  <footer>
+    <p><a href="https://github.com/lo5">Github</a> | <a href="https://www.linkedin.com/in/prithviprabhu/">LinkedIn</a> | <a href="https://twitter.com/CrunchingData">Twitter</a></p>
+    <p><a href="2021-05-04.md">Source</a></p>
+  </footer>
+</body>
+
+</html>
