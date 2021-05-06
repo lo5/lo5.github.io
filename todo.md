@@ -1,4 +1,7 @@
 # TODO
+. wave/db concurrency tests
+. wave/db packaging
+. document wave/db
 . connect() in browser module shouldn't accept `/_s`
 . rename -B suffix from public APIs
 . add image to component docs.
