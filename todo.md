@@ -1,6 +1,6 @@
 # TODO
+. update wave logo
 . wave/db concurrency tests
-. wave/db packaging
 . document wave/db
 . connect() in browser module shouldn't accept `/_s`
 . rename -B suffix from public APIs
@@ -21,6 +21,8 @@
 . custom icon support - prefix icon with pack name
 . osquery based examples https://github.com/osquery/osquery
 . make commands support URLs/paths? [#](https://github.com/h2oai/wave/discussions/764)
+. BUG [Dialog is not automatically cleared when closable is True](https://github.com/h2oai/wave/issues/790)
+. BUG [Upload button text of file upload doesn't render in dialog box](https://github.com/h2oai/wave/issues/788)
 . BUG [Way to prevent \"httpx.ReadTimeout\"](https://github.com/h2oai/wave/issues/756)
 . BUG [Events plot selects the full data series, when it is a line. ](https://github.com/h2oai/wave/issues/738)
 . BUG [Form card with height of 1 overflows if a single ui.stat is used](https://github.com/h2oai/wave/issues/723)
