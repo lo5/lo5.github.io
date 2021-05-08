@@ -1,0 +1,79 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+
+<head>
+  <meta charset="utf-8">
+  <title>Wrong Technology / May 07, 2021 (Fri)</title>
+  <meta name="description" content="Prithvi Prabhu's homepage">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="May 07, 2021 (Fri)">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://infov.is">
+  <meta property="og:image" content="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+  <meta name="theme-color" content="#fff">
+</head>
+
+<body>
+  <header>
+    <h1><a href='index.html'>Wrong Technology</a> / May 07, 2021 (Fri)</h1>
+    <div><a href='about.html'>About</a></div>
+  </header>
+  <article>
+    <h2>Done</h2>
+<ul>
+<li><i class='done'></i> Update wave logo</li>
+<li><i class='done'></i> Document wave/db</li>
+<li><i class='done'></i> Remove external deps from <a href="http://db.py">db.py</a></li>
+<li><i class='done'></i> Expose connect() API instead of ctor</li>
+<li><i class='done'></i> Remove content-type restriction in wavedb</li>
+<li><i class='done'></i> Omit empty fields in json responses</li>
+<li><i class='done'></i> 0.15.0 release notes</li>
+<li><i class='done'></i> 0.15.0 release</li>
+<li><i class='done'></i> Fix website homepage title</li>
+<li><i class='done'></i> PR <a href="https://github.com/h2oai/wave/pull/793">feat: Set default label and update docstring</a></li>
+<li><i class='done'></i> PR <a href="https://github.com/h2oai/wave/pull/796">feat: Use response error message</a></li>
+<li><i class='done'></i> PR <a href="https://github.com/h2oai/wave/pull/786">Fix data type in Tour example</a></li>
+<li><i class='done'></i> <a href="https://github.com/h2oai/wave/issues/687">Reload UI client if incompatible with server</a></li>
+</ul>
+<h2>Notes</h2>
+<p><a href="https://wave.h2o.ai/blog/release-0.15">New blog post</a>
+<a href="https://wave.h2o.ai/docs/wavedb">WaveDB Docs</a></p>
+<p>Made-up stuff: Typescript for documenting protocol grammar (that actually compiles):</p>
+<pre><code>type request = exec_request | drop_request
+type reply = exec_reply | drop_reply
+
+type exec_request = { d: database_name, s: statement[], a: atomicity }
+type database_name = string
+type statement = { q: query, p: parameter[] }
+type query = string
+type parameter = primitive
+type atomicity = 0 | 1
+
+type exec_reply = { r: result[], e: error }
+type result = row[]
+type row = primitive[]
+type error = string
+
+type drop_request = { d: database_name }
+
+type drop_reply = { e: error }
+
+type primitive = number | string | boolean | null</code></pre>
+
+  </article>
+  <footer>
+    <p><a href="https://github.com/lo5">Github</a> | <a href="https://www.linkedin.com/in/prithviprabhu/">LinkedIn</a> | <a href="https://twitter.com/CrunchingData">Twitter</a></p>
+    <p><a href="2021-05-07.md">Source</a></p>
+  </footer>
+</body>
+
+</html>

@@ -1,7 +1,5 @@
 # TODO
-. update wave logo
 . wave/db concurrency tests
-. document wave/db
 . connect() in browser module shouldn't accept `/_s`
 . rename -B suffix from public APIs
 . add image to component docs.
@@ -82,7 +80,6 @@
 . [Package and ship application database server](https://github.com/h2oai/wave/issues/694)
 . [Roadmap 2021](https://github.com/h2oai/wave/issues/693)
 . [Possible to consider to add tooltips for nav_item?](https://github.com/h2oai/wave/issues/692)
-. [Reload UI client if incompatible with server](https://github.com/h2oai/wave/issues/687)
 . [Clean-up unclaimed file uploads on server](https://github.com/h2oai/wave/issues/686)
 . [Add support for specifying images wherever icons are accepted](https://github.com/h2oai/wave/issues/674)
 . [Plot group color is not binded to the group value](https://github.com/h2oai/wave/issues/671)
