@@ -1,0 +1,542 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+
+<head>
+  <meta charset="utf-8">
+  <title>Wrong Technology / May 09, 2021 (Sun)</title>
+  <meta name="description" content="Prithvi Prabhu's homepage">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="May 09, 2021 (Sun)">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://infov.is">
+  <meta property="og:image" content="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+  <meta name="theme-color" content="#fff">
+</head>
+
+<body>
+  <header>
+    <h1><a href='index.html'>Wrong Technology</a> / May 09, 2021 (Sun)</h1>
+    <div><a href='about.html'>About</a></div>
+  </header>
+  <article>
+    <h2>Done</h2>
+<ul>
+<li><i class='done'></i> WaveDB read concurrency tests</li>
+</ul>
+<h2>Notes</h2>
+<p>$ go run cmd/wavedb/main.go -benchmark
+benchmark: read1
+read1: iteration 1/10
+n=1 ok
+n=2 ok
+n=4 ok
+n=8 ok
+n=16 ok
+n=32 ok
+n=64 ok
+n=128 ok
+n=256 ok
+n=512 ok
+n=1024 ok
+n=2048 ok
+n=4096 ok
+n=8192 fail
+n=6144 fail
+n=5120 fail
+n=4608 fail
+n=4352 fail
+n=4224 fail
+n=4160 ok
+n=4192 fail
+n=4176 fail
+n=4168 fail
+n=4164 fail
+n=4162 fail
+n=4161 fail
+read1: iteration 2/10
+n=1 ok
+n=2 ok
+n=4 ok
+n=8 ok
+n=16 ok
+n=32 ok
+n=64 ok
+n=128 ok
+n=256 ok
+n=512 ok
+n=1024 ok
+n=2048 ok
+n=4096 fail
+n=3072 fail
+n=2560 ok
+n=2816 ok
+n=2944 fail
+n=2880 ok
+n=2912 ok
+n=2928 ok
+n=2936 ok
+n=2940 ok
+n=2942 ok
+n=2943 fail
+read1: iteration 3/10
+n=1 ok
+n=2 ok
+n=4 ok
+n=8 ok
+n=16 ok
+n=32 ok
+n=64 ok
+n=128 ok
+n=256 ok
+n=512 ok
+n=1024 ok
+n=2048 fail
+n=1536 ok
+n=1792 ok
+n=1920 ok
+n=1984 ok
+n=2016 ok
+n=2032 ok
+n=2040 ok
+n=2044 ok
+n=2046 ok
+n=2047 fail
+read1: iteration 4/10
+n=1 ok
+n=2 ok
+n=4 ok
+n=8 ok
+n=16 ok
+n=32 ok
+n=64 ok
+n=128 ok
+n=256 ok
+n=512 ok
+n=1024 ok
+n=2048 ok
+n=4096 fail
+n=3072 ok
+n=3584 ok
+n=3840 fail
+n=3712 ok
+n=3776 ok
+n=3808 fail
+n=3792 ok
+n=3800 fail
+n=3796 fail
+n=3794 ok
+n=3795 ok
+read1: iteration 5/10
+n=1 ok
+n=2 ok
+n=4 ok
+n=8 ok
+n=16 ok
+n=32 ok
+n=64 ok
+n=128 ok
+n=256 ok
+n=512 ok
+n=1024 ok
+n=2048 ok
+n=4096 ok
+n=8192 fail
+n=6144 ok
+n=7168 fail
+n=6656 fail
+n=6400 fail
+n=6272 fail
+n=6208 fail
+n=6176 fail
+n=6160 fail
+n=6152 fail
+n=6148 fail
+n=6146 fail
+n=6145 fail
+read1: iteration 6/10
+n=1 ok
+n=2 ok
+n=4 ok
+n=8 ok
+n=16 ok
+n=32 ok
+n=64 ok
+n=128 ok
+n=256 ok
+n=512 ok
+n=1024 ok
+n=2048 ok
+n=4096 fail
+n=3072 ok
+n=3584 fail
+n=3328 fail
+n=3200 ok
+n=3264 fail
+n=3232 fail
+n=3216 ok
+n=3224 ok
+n=3228 ok
+n=3230 fail
+n=3229 fail
+read1: iteration 7/10
+n=1 ok
+n=2 ok
+n=4 ok
+n=8 ok
+n=16 ok
+n=32 ok
+n=64 ok
+n=128 ok
+n=256 ok
+n=512 ok
+n=1024 ok
+n=2048 ok
+n=4096 fail
+n=3072 ok
+n=3584 fail
+n=3328 fail
+n=3200 ok
+n=3264 ok
+n=3296 ok
+n=3312 ok
+n=3320 ok
+n=3324 fail
+n=3322 ok
+n=3323 ok
+read1: iteration 8/10
+n=1 ok
+n=2 ok
+n=4 ok
+n=8 ok
+n=16 ok
+n=32 ok
+n=64 ok
+n=128 ok
+n=256 ok
+n=512 ok
+n=1024 ok
+n=2048 ok
+n=4096 fail
+n=3072 ok
+n=3584 ok
+n=3840 fail
+n=3712 fail
+n=3648 ok
+n=3680 ok
+n=3696 ok
+n=3704 ok
+n=3708 fail
+n=3706 fail
+n=3705 fail
+read1: iteration 9/10
+n=1 ok
+n=2 ok
+n=4 ok
+n=8 ok
+n=16 ok
+n=32 ok
+n=64 ok
+n=128 ok
+n=256 ok
+n=512 ok
+n=1024 ok
+n=2048 ok
+n=4096 fail
+n=3072 fail
+n=2560 ok
+n=2816 ok
+n=2944 fail
+n=2880 ok
+n=2912 fail
+n=2896 fail
+n=2888 ok
+n=2892 ok
+n=2894 ok
+n=2895 ok
+read1: iteration 10/10
+n=1 ok
+n=2 ok
+n=4 ok
+n=8 ok
+n=16 ok
+n=32 ok
+n=64 ok
+n=128 ok
+n=256 ok
+n=512 ok
+n=1024 ok
+n=2048 ok
+n=4096 fail
+n=3072 ok
+n=3584 fail
+n=3328 fail
+n=3200 ok
+n=3264 ok
+n=3296 ok
+n=3312 ok
+n=3320 fail
+n=3316 ok
+n=3318 fail
+n=3317 ok
+benchmark: read100
+read100: iteration 1/10
+n=1 ok
+n=2 ok
+n=4 ok
+n=8 ok
+n=16 ok
+n=32 ok
+n=64 ok
+n=128 ok
+n=256 ok
+n=512 ok
+n=1024 ok
+n=2048 fail
+n=1536 ok
+n=1792 fail
+n=1664 ok
+n=1728 ok
+n=1760 ok
+n=1776 fail
+n=1768 ok
+n=1772 ok
+n=1774 ok
+n=1775 ok
+read100: iteration 2/10
+n=1 ok
+n=2 ok
+n=4 ok
+n=8 ok
+n=16 ok
+n=32 ok
+n=64 ok
+n=128 ok
+n=256 ok
+n=512 ok
+n=1024 ok
+n=2048 ok
+n=4096 fail
+n=3072 fail
+n=2560 ok
+n=2816 fail
+n=2688 ok
+n=2752 ok
+n=2784 fail
+n=2768 ok
+n=2776 fail
+n=2772 ok
+n=2774 ok
+n=2775 ok
+read100: iteration 3/10
+n=1 ok
+n=2 ok
+n=4 ok
+n=8 ok
+n=16 ok
+n=32 ok
+n=64 ok
+n=128 ok
+n=256 ok
+n=512 ok
+n=1024 ok
+n=2048 fail
+n=1536 ok
+n=1792 ok
+n=1920 ok
+n=1984 ok
+n=2016 ok
+n=2032 ok
+n=2040 ok
+n=2044 ok
+n=2046 ok
+n=2047 ok
+read100: iteration 4/10
+n=1 ok
+n=2 ok
+n=4 ok
+n=8 ok
+n=16 ok
+n=32 ok
+n=64 ok
+n=128 ok
+n=256 ok
+n=512 ok
+n=1024 ok
+n=2048 ok
+n=4096 fail
+n=3072 fail
+n=2560 fail
+n=2304 ok
+n=2432 ok
+n=2496 ok
+n=2528 ok
+n=2544 ok
+n=2552 ok
+n=2556 fail
+n=2554 fail
+n=2553 ok
+read100: iteration 5/10
+n=1 ok
+n=2 ok
+n=4 ok
+n=8 ok
+n=16 ok
+n=32 ok
+n=64 ok
+n=128 ok
+n=256 ok
+n=512 ok
+n=1024 ok
+n=2048 ok
+n=4096 ok
+n=8192 fail
+n=6144 fail
+n=5120 fail
+n=4608 fail
+n=4352 ok
+n=4480 fail
+n=4416 fail
+n=4384 fail
+n=4368 fail
+n=4360 ok
+n=4364 fail
+n=4362 fail
+n=4361 fail
+read100: iteration 6/10
+n=1 ok
+n=2 ok
+n=4 ok
+n=8 ok
+n=16 ok
+n=32 ok
+n=64 ok
+n=128 ok
+n=256 ok
+n=512 ok
+n=1024 ok
+n=2048 fail
+n=1536 ok
+n=1792 ok
+n=1920 ok
+n=1984 ok
+n=2016 fail
+n=2000 ok
+n=2008 fail
+n=2004 ok
+n=2006 ok
+n=2007 ok
+read100: iteration 7/10
+n=1 ok
+n=2 ok
+n=4 ok
+n=8 ok
+n=16 ok
+n=32 ok
+n=64 ok
+n=128 ok
+n=256 ok
+n=512 ok
+n=1024 ok
+n=2048 ok
+n=4096 fail
+n=3072 ok
+n=3584 fail
+n=3328 fail
+n=3200 ok
+n=3264 ok
+n=3296 fail
+n=3280 fail
+n=3272 ok
+n=3276 fail
+n=3274 fail
+n=3273 ok
+read100: iteration 8/10
+n=1 ok
+n=2 ok
+n=4 ok
+n=8 ok
+n=16 ok
+n=32 ok
+n=64 ok
+n=128 ok
+n=256 ok
+n=512 ok
+n=1024 ok
+n=2048 ok
+n=4096 fail
+n=3072 ok
+n=3584 ok
+n=3840 fail
+n=3712 fail
+n=3648 fail
+n=3616 fail
+n=3600 fail
+n=3592 fail
+n=3588 fail
+n=3586 fail
+n=3585 fail
+read100: iteration 9/10
+n=1 ok
+n=2 ok
+n=4 ok
+n=8 ok
+n=16 ok
+n=32 ok
+n=64 ok
+n=128 ok
+n=256 ok
+n=512 ok
+n=1024 fail
+n=768 ok
+n=896 ok
+n=960 ok
+n=992 ok
+n=1008 ok
+n=1016 ok
+n=1020 ok
+n=1022 ok
+n=1023 ok
+read100: iteration 10/10
+n=1 ok
+n=2 ok
+n=4 ok
+n=8 ok
+n=16 ok
+n=32 ok
+n=64 ok
+n=128 ok
+n=256 ok
+n=512 ok
+n=1024 ok
+n=2048 fail
+n=1536 ok
+n=1792 ok
+n=1920 fail
+n=1856 ok
+n=1888 ok
+n=1904 fail
+n=1896 ok
+n=1900 ok
+n=1902 ok
+n=1903 ok</p>
+<pre><code>--- benchmark results ---
+read1 concurrency: min 2046, max 6144, avg 3488
+read100 concurrency: min 1023, max 4360, avg 2613</code></pre>
+
+  </article>
+  <footer>
+    <p><a href="https://github.com/lo5">Github</a> | <a href="https://www.linkedin.com/in/prithviprabhu/">LinkedIn</a> | <a href="https://twitter.com/CrunchingData">Twitter</a></p>
+    <p><a href="2021-05-09.md">Source</a></p>
+  </footer>
+</body>
+
+</html>
