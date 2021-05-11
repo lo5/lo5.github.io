@@ -35,6 +35,11 @@
 <h2>Notes</h2>
 <h3>Benchmark sqlite3 access from uvicorn + uvloop + aiosqlite</h3>
 <p>System: x86_64, Intel i7-6770HQ @ 2.60GHz, 32GB DDR4, Samsung SSD 960 EVO 250GB</p>
+<p>Summary:</p>
+<ul>
+<li>wavedb: mean latency &lt;1ms for 2k req/s, ~3s for 5k req/s, &lt;1s for 2.5k req/s sustained over 20s</li>
+<li>uvloop + aiosqlite: mean latency &gt;1ms for 0.5k req/s, &gt;1s at 1k req/s, and unusable at 2k req/s.</li>
+</ul>
 <p>Query:</p>
 <pre><code>$ cat select-5.json
 {
@@ -94,7 +99,7 @@ async def app(scope, receive, send):
         'body': json.dumps(response, separators=(',', ':')).encode('utf8'),
     })
 </code></pre>
-<p>Launch:</p>
+<p>Launch (can this be improved?):</p>
 <pre><code>$ uvicorn --loop uvloop --log-level error --backlog 10000 serve:app
 </code></pre>
 <p>500 req/s for 5s:</p>
@@ -206,7 +211,8 @@ Bytes In      [total, mean]                     18100000, 362.00
 Bytes Out     [total, mean]                     6300000, 126.00
 Success       [ratio]                           100.00%
 Status Codes  [code:count]                      200:50000
-Error Set:</code></pre>
+Error Set:
+</code></pre>
 
   </article>
   <footer>
