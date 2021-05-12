@@ -31,6 +31,12 @@
     <h2>Done</h2>
 <ul>
 <li><i class='done'></i> Benchmark wavedb against uvloop + aiohttp</li>
+<li><i class='done'></i> PR: fix: UI unit tests #806</li>
+<li><i class='done'></i> Improve wavedb docs</li>
+<li><i class='done'></i> Set gomaxprocs 1 permanently?</li>
+<li><i class='done'></i> Add complete example for wave + wavedb. Todo app?</li>
+<li><i class='done'></i> Bug: api returns nil for empty resultset. Should be <code>[]</code></li>
+<li><i class='done'></i> Tall info card: review</li>
 </ul>
 <h2>Notes</h2>
 <h3>Benchmark sqlite3 access from uvicorn + uvloop + aiosqlite</h3>
@@ -212,6 +218,21 @@ Bytes Out     [total, mean]                     6300000, 126.00
 Success       [ratio]                           100.00%
 Status Codes  [code:count]                      200:50000
 Error Set:
+</code></pre>
+<h3>Wifi woes</h3>
+<p>Wifi adapter refuses to work after boot, but only occasionally. <code>ip link</code> does not list <code>wlan1</code>.</p>
+<pre><code>$ lsmod | grep iw
+iwlmvm                483328  0
+mac80211             1167360  1 iwlmvm
+iwlwifi               421888  1 iwlmvm
+cfg80211             1036288  3 iwlmvm,iwlwifi,mac80211
+</code></pre>
+<p>Fix:</p>
+<pre><code>$ sudo rmmod iwlmvm
+$ sudo modprobe iwlmvm
+
+$ ip link | grep wlan
+5: wlan1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP mode DORMANT group default qlen 1000
 </code></pre>
 
   </article>
