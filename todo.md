@@ -1,4 +1,5 @@
 # TODO
+. bokeh selection + raising events - app example
 . connect() in browser module shouldn't accept `/_s`
 . rename -B suffix from public APIs
 . add image to component docs.
@@ -18,6 +19,16 @@
 . custom icon support - prefix icon with pack name
 . osquery based examples https://github.com/osquery/osquery
 . make commands support URLs/paths? [#](https://github.com/h2oai/wave/discussions/764)
+. [Possible to increase font size of components?](https://github.com/h2oai/wave/issues/814)
+. [Navigation and Side Menu Improvements ( To use as a template ) ](https://github.com/h2oai/wave/issues/811)
+. BUG [Axis title overlaps labels when labels are angled](https://github.com/h2oai/wave/issues/805)
+. BUG [Horizontal bar plot doesn't work with theme](https://github.com/h2oai/wave/issues/801)
+. [Customise the width of the text boxes ( input fields ) ](https://github.com/h2oai/wave/issues/795)
+. [Project/Model](https://github.com/h2oai/wave/issues/792)
+. [Disabled buttons in dark mode](https://github.com/h2oai/wave/issues/791)
+. [Dialog is not automatically cleared when closable is True](https://github.com/h2oai/wave/issues/790)
+. [Meta Description and logo edit in ui.meta_card](https://github.com/h2oai/wave/issues/784)
+. [Wave 0.14 running app issue](https://github.com/h2oai/wave/issues/782)
 . BUG [Dialog is not automatically cleared when closable is True](https://github.com/h2oai/wave/issues/790)
 . BUG [Upload button text of file upload doesn't render in dialog box](https://github.com/h2oai/wave/issues/788)
 . BUG [Way to prevent \"httpx.ReadTimeout\"](https://github.com/h2oai/wave/issues/756)
