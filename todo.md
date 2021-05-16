@@ -1,6 +1,5 @@
 # TODO
 . bokeh selection + raising events - app example
-. connect() in browser module shouldn't accept `/_s`
 . rename -B suffix from public APIs
 . add image to component docs.
 . check if wide info cards looks proper in-context
@@ -204,3 +203,5 @@
 . [Implement ability to add custom style sheets per page](https://github.com/h2oai/wave/issues/24)
 . [Make search+vis a UI component in Wave](https://github.com/h2oai/wave/issues/18)
 . [Support tooltips for ui.text() / markdown elements](https://github.com/h2oai/wave/issues/16)
+
+

@@ -1,0 +1,44 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <title>Prithvi Prabhu / May 13, 2021 (Thu) - Refactor h2o-wave</title>
+  <meta name="description" content="Prithvi Prabhu's Journal">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+  <meta name="theme-color" content="#fff">
+</head>
+
+<body>
+  <header>
+    <h1><a href='/'>Prithvi Prabhu</a> / May 13, 2021 (Thu) - Refactor h2o-wave</h1>
+    <div><a href='/about.html'>About</a></div>
+  </header>
+  <article>
+    <h2>Done</h2>
+<ul>
+<li><i class='done'></i> Connect() in browser module shouldn’t accept <code>/_s</code></li>
+<li><i class='done'></i> Make h2o-wave npm package leaner</li>
+</ul>
+<h2>Notes</h2>
+<p>The NPM package needs a formal API so that apps using third-party Javascript libs on the front-end can capture and send the events to the Python app. Events are not special-cased in the daemon, so no changes are required there. Cleaning up the NPM package will also open up possibilities for building Wave apps using entirely custom (non-Fluent) user interfaces, like Bootstrap or Blueprint or Material Design. Obviously this requires knowledge of HTML and CSS in addition to Python, but I&quot;m hoping we can continue sticking to “no Javascript required”.</p>
+<h3>Performance</h3>
+<p>A significant change that’s needed to the front-end kernel is to emit events at a more granular level. Currently, events are emitted for “page changed” and “card changed”, but the handlers don’t know what exactly changed. This is not much of a problem when using React since it resorts to diff-ing anyway, but is likely to be an issue with non-vdom renderers. This needs to change.</p>
+<p>The proof-of-concept <a href="https://github.com/h2oai/wave/blob/6695621b3d4bbfb239836b071e13b1c8cd741252/u/index.ts">Handlebars based implementation</a>, for example, brute-force renders the entire page on incremental changes to cards.</p>
+
+  </article>
+  <footer>
+    <p><a href="https://github.com/lo5">Github</a> | <a href="https://www.linkedin.com/in/prithviprabhu/">LinkedIn</a> | <a href="https://twitter.com/CrunchingData">Twitter</a></p>
+    <p><a href="2021-05-13.md">Source</a></p>
+  </footer>
+</body>
+
+</html>

@@ -6,6 +6,7 @@
   --fg2: #818896;
   --fg3: #5c6370;
   --acc: #39d1ff;
+  --acc2:#ff6464;
   --sec: #2aafd8;
   --width:  640px;
 }
@@ -65,11 +66,12 @@ h1, h2, h3, h4, h5, h6, b, strong {
   line-height: inherit;
 }
 h2 {
+  color: var(--acc2);
   border-top: 1px solid var(--fg3);
   margin-top: 3rem!important;
   padding-top: 0.5rem;
 }
-h3 {
+h4 {
   color: var(--fg2);
 }
 hr {
@@ -95,6 +97,18 @@ code, pre {
   background-color: var(--bg2);
   color: var(--fg2);
   font-family: 'JetBrains Mono', monospace;
+}
+blockquote {
+  position: relative;
+  padding-left: 2rem;
+}
+blockquote:before {
+  display: block;
+  content: "\201C";
+  font-size: 64px;
+  position: absolute;
+  left: 0rem;
+  top: -1.2rem;
 }
 p code, li code {
   padding-left: 5px;

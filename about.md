@@ -1,4 +1,4 @@
-# Prithvi Prabhu
+# About
 
 ![El P](img/hero.jpg)
 
