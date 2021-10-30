@@ -1,9 +1,10 @@
 <!doctype html>
 <html class="no-js" lang="">
+
 <head>
   <meta charset="utf-8">
-  <title>Prithvi Prabhu{{#if is_post}} / {{date}}{{/if}} - {{title}}</title>
-  <meta name="description" content="Prithvi Prabhu's Journal">
+  <title>Prithvi Prabhu</title>
+  <meta name="description" content="Prithvi Prabhu's Website">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:type" content="website">
   <meta property="og:image" content="icon.png">
@@ -11,23 +12,25 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=JetBrains+Mono&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="main.css">
   <meta name="theme-color" content="#fff">
 </head>
 
 <body>
   <header>
-    <h1><a href='/'>Prithvi Prabhu</a>{{#if is_post}} / {{date}}{{/if}} - {{title}}</h1>
-    <div><a href='/about.html'>About</a></div>
+    <h1><a href='/'>Prithvi Prabhu</a></h1>
+    <div class="social">
+      <a href="https://github.com/lo5"><img alt="Github" src="img/github.svg"></a>
+      <a href="https://www.linkedin.com/in/prithviprabhu/"><img alt="LinkedIn" src="img/linkedin.svg"></a>
+      <a href="https://twitter.com/CrunchingData"><img alt="Twitter" src="img/twitter-alt.svg"></a>
+    </div>
   </header>
-  <article>
-    {{{markup}}}
-  </article>
+  <article>__</article>
   <footer>
-    <p><a href="https://github.com/lo5">Github</a> | <a href="https://www.linkedin.com/in/prithviprabhu/">LinkedIn</a> | <a href="https://twitter.com/CrunchingData">Twitter</a></p>
-    <p><a href="{{{source}}}">Source</a></p>
   </footer>
 </body>
 
