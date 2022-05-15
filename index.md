@@ -60,3 +60,7 @@ Previously I used to be in technology consulting with 3Com, Abbott, Aon, Astra Z
 - [Systems and methods for interest-driven data visualization systems utilizing visualization image data and trellised visualizations](https://patents.google.com/patent/US9934299B2/en?oq=US9934299B2) - Apr 3, 2018
 - [Systems and methods for interest-driven data visualization systems utilized in interest-driven business intelligence systems](https://patents.google.com/patent/US9824127B2/en?oq=US9824127B2) - Nov 21, 2017
 
+
+## Music
+
+When I'm not working, I'm usually into sample-based music production, mainly using an MPC Live II, an Octatrack mkII, a Roland FA workstation keyboard, and a couple of Novation Launchpads hooked up to Ableton Live. The MPC Live, in particular, is a brilliantly designed sampler and endless fun. I've spent countless hours studying and reverse-engineering sampling and sequencing techniques used in boom-bap, hip hop, trip hop, lo-fi and related genres. Someday I hope to design and build an inexpensive, self-contained, compact portable hardware sampler like the MPC, embedded systems and all. Email me if you want to collaborate ;-)
