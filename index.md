@@ -4,6 +4,7 @@ I work at the intersection of computing and design to explore and invent new way
 
 I am interested in:
 
+- Visual programming, no-code / low-code / self-service / rapid application development systems.
 - High-performance graphics, real-time information visualization, data visualization, visual analytics and self-service decision support systems.
 - Research and development of novel HCI techniques for interactive exploration and analysis of large-scale data.
 - Patterns, practices and programming strategies for building robust, large-scale, highly interactive analytical systems.
@@ -24,14 +25,16 @@ I like tinkering with programming languages.
 
 I've founded or been an early engineer in three startups.
 
-I currently work at **[H2O.ai](https://h2o.ai)** (Mountain View, California) as Chief of Technology, a fancy title for "mostly programmer, programming" (10,000+ commits in Github since March 2014).
+I currently work at **[H2O.ai](https://h2o.ai)** at Mountain View as **Chief Technologist**, a fancy title for "mostly programmer, programming" ([12,000+ commits in Github](https://github.com/lo5) since March 2014).
 
-I lead the development of **[H2O Wave](https://www.h2o.ai/products/h2o-wave/)**, an open-source analytical decision-support platform that involves several interesting aspects including real-time information visualization, search-driven exploratory data analysis, information retrieval and augmented analytics. H2O Wave has a novel language-agnostic rapid application development system for authoring interactive real-time information displays and applications.
+I lead the development of **[H2O Nitro](https://nitro.h2o.ai)** and **[H2O Wave](https://wave.h2o.ai)**, open-source low-code / rapid application development systems for authoring interactive real-time information displays and analytical decision-support systems.
 
 I consider myself incredibly fortunate to be working with some of the [smartest](https://youtu.be/xAhWaveAYV5_PY?t=23) [people](https://twitter.com/CrunchingData/status/1187627135952769029) in the industry, including [Leland Wilkinson](https://en.wikipedia.org/wiki/Leland_Wilkinson) of [Grammar of Graphics](https://www.springer.com/gp/book/9780387245447) fame, and hacker extraordinaire [Cliff Click](https://www.infoq.com/profile/Cliff-Click/).
 
 In the past, I have been responsible for:
 
+- **[H2O Q](https://twitter.com/crunchingdata/status/1187627135952769029)** - Analytical decision-support platform, with search-driven exploratory data analysis and visualization, data prep and application runtime. Evolved into [H2O Wave](https://wave.h2o.ai) ([open-source](https://github.com/h2oai/wave)) and [H2O AI Cloud](https://h2o.ai/platform/ai-cloud/).
+- **[H2O Hotspot](https://youtu.be/S9cmi89fvT8)** - A system for building immersive, animated graphical interfaces and FUIs by exporting designs directly from Figma/Sketch and compositing them into web UIs.
 - **[Driverless AI](https://www.h2o.ai/products/h2o-driverless-ai/)** - H2O.ai's flagship automatic machine learning platform.
 - **Driverless AI for Excel** - A native add-in for automatic machine learning in Microsoft Excel.
 - **[Flow](https://github.com/h2oai/h2o-flow)** - a [hybrid GUI + REPL](https://www.h2o.ai/blog/introducing-flow/) environment for exploratory data analysis and machine learning. You can see it in action [here](https://www.youtube.com/results?search_query=h2o+flow). There is also a [book](https://www.oreilly.com/library/view/practical-machine-learning/9781491964590/) about it.
@@ -44,7 +47,7 @@ In the past, I have been responsible for:
 - **H2O Excel Add-in** - Predictive array-formulae for spreadsheet data.
 
 
-Previously in 2010, I founded **[Plot.io](https://twitter.com/plot_io)**, a web-based interactive visual analytics system based on Leland Wilkinson's [Grammar of Graphics](https://www.springer.com/gp/book/9780387245447). You can see it in action [here](https://www.youtube.com/playlist?list=PLuJkLL3TgZXYRDcRxKL-Z0FFUEUmAs0US). The front-end was originally authored in a custom Lisp dialect, transpiled to Coffeescript, then Javascript. The programming paradigm was inspired by [Flapjax](https://www.flapjax-lang.org/), based on [functional reactive programming](https://wiki.haskell.org/Functional_Reactive_Programming) and [flow-based programming](https://en.wikipedia.org/wiki/Flow-based_programming), long before Elm or React/Redux were a thing. The entire user interface and visualization/rendering library minified down to ~150KB, a fourth of the size of the average web page back in 2010. As far as I'm aware, it was the first browser-based "BI" system in existence.
+Previously in 2010, I founded **[Plot.io](https://twitter.com/plot_io)**, a web-based interactive visual analytics system based on Leland Wilkinson's [Grammar of Graphics](https://www.springer.com/gp/book/9780387245447). You can see it in action [here](https://www.youtube.com/playlist?list=PLuJkLL3TgZXYRDcRxKL-Z0FFUEUmAs0US). The front-end was originally authored in a custom Lisp dialect, transpiled to Coffeescript, then Javascript. The programming paradigm was inspired by [Flapjax](https://www.flapjax-lang.org/), based on [functional reactive programming](https://wiki.haskell.org/Functional_Reactive_Programming) and [flow-based programming](https://en.wikipedia.org/wiki/Flow-based_programming), long before Elm or React/Redux were a thing. The entire user interface and visualization/rendering library minified down to ~150KB, a fourth of the size of the average web page back in 2010. As far as I'm aware, it was the first browser-based "BI" system in existence that worked without third-party plugins like Adobe SVG.
 
 Plot.io was acquired by [Platfora](https://platfora.com/) in 2012, which in turn was acquired by [Workday](https://www.workday.com/) in 2016. The product is currently called [Prism](https://www.workday.com/en-us/products/analytics-reporting/overview.html).
 

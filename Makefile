@@ -11,7 +11,7 @@ done:
 	./node_modules/.bin/coffee done.coffee
 
 watch:
-	while inotifywait -e close_write *.md template.html make.coffee; do make; done
+	find *.md | entr make
 
 push: all
 	git add . && git commit -m . && git push
