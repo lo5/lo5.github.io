@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seaborn plots</title>
+    <meta name="description" content="A web log about stuff.">
+    <meta name="generator" content="Eleventy v1.0.1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-one-light.css">
+    <link rel="stylesheet" href="/css/prism-diff.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Wrong Technology">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Wrong Technology">
+  </head>
+  <body>
+    <header>
+      <h1 class="home"><a href="/">Wrong Technology</a></h1>
+      <ul class="nav">
+        <li class="nav-item"><a href="/">Home</a></li>
+        <li class="nav-item"><a href="/about/">About</a></li>
+        <li class="nav-item"><a href="/projects/">Projects</a></li>
+        <li class="nav-item"><a href="https://www.linkedin.com/in/prithviprabhu/" target="_blank">LinkedIn</a></li>
+        <li class="nav-item"><a href="https://github.com/lo5" target="_blank">Github</a></li>
+        <li class="nav-item"><a href="https://twitter.com/CrunchingData" target="_blank">Twitter</a></li>
+      </ul>
+    </header>
+
+    <main class="tmpl-post">
+      <h1>Seaborn plots</h1>
+
+<time datetime="2021-05-30">30 May 2021</time>
+
+<p>v0.2 of the Matplotlib plugin adds support for capturing the <code>pyplot</code> context, which means the Seaborn package works out of the box.</p>
+<p>If a figure is not provided, the global <code>matplotlib.pyplot</code> instance is used as the source. This is useful when you're using something like Seaborn, which relies on matplotlib.pyplot, but not optimal when used inside a web app.</p>
+<p>pyplot maintains references to the opened figures to make <code>show()</code> work, but this will cause memory leaks unless the figures are properly closed.</p>
+<p><img src="/img/seaborn-plugin.gif" alt="Seaborn Plugin"></p>
+
+
+<div class="post-tags"><span><a href="/tags/nitro/" class="post-tag">#nitro</a> </span<span><a href="/tags/plugin/" class="post-tag">#plugin</a> </span
+</div>
+<div class="post-paging">
+  <span>&laquo; <a href="/posts/matplotlib-plugin/">Matplotlib Plugin</a></span>
+  <span></span>
+</div>
+
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <!-- Current page: /posts/seaborn-plots/ -->
+  </body>
+</html>

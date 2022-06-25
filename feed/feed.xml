@@ -5,7 +5,7 @@
 	
 	<link href="https://wrong.technology/feed/feed.xml" rel="self"/>
 	<link href="https://wrong.technology/"/>
-	<updated>2021-05-27T00:00:00Z</updated>
+	<updated>2022-06-22T00:00:00Z</updated>
 	<id>https://wrong.technology/</id>
 	<author>
 		<name>Prithvi Prabhu</name>
@@ -13,12 +13,272 @@
 	</author>
 	
 	<entry>
+		<title>Pyodide for Nitro: Progress update 2</title>
+		<link href="https://wrong.technology/posts/pyodide-update-2/"/>
+		<updated>2022-06-22T00:00:00Z</updated>
+		<id>https://wrong.technology/posts/pyodide-update-2/</id>
+		<content type="html">&lt;p&gt;This is now looking real.&lt;/p&gt;
+&lt;p&gt;Nitro 0.11 will ship with Pyodide support this week. Party.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Run Nitro apps entirely in-browser using Python-in-Wasm.&lt;/li&gt;
+&lt;li&gt;Embed Python code in HTML using &lt;code&gt;text/python&lt;/code&gt; script tags.&lt;/li&gt;
+&lt;li&gt;Load external &lt;code&gt;.py&lt;/code&gt; modules.&lt;/li&gt;
+&lt;li&gt;Tiny (~13KB) wheel.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Theming Nitro apps</title>
+		<link href="https://wrong.technology/posts/nitro-themes/"/>
+		<updated>2022-06-20T00:00:00Z</updated>
+		<id>https://wrong.technology/posts/nitro-themes/</id>
+		<content type="html">&lt;p&gt;Nitro is pretty simple to theme - just set the foreground, background, and accent colors, and tints/shades are automatically derived for you.&lt;/p&gt;
+&lt;p&gt;Makes it easy to get color schemes that match your brand.&lt;/p&gt;
+&lt;p&gt;More: &lt;a href=&quot;https://nitro.h2o.ai/theming/&quot;&gt;https://nitro.h2o.ai/theming/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://wrong.technology/img/nitro-theme1.png&quot; alt=&quot;theme1&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;https://wrong.technology/img/nitro-theme2.png&quot; alt=&quot;theme2&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;https://wrong.technology/img/nitro-theme3.png&quot; alt=&quot;theme3&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;https://wrong.technology/img/nitro-theme4.png&quot; alt=&quot;theme4&quot; /&gt;&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Pyodide for Nitro: Progress update</title>
+		<link href="https://wrong.technology/posts/pyodide-update-1/"/>
+		<updated>2022-06-19T00:00:00Z</updated>
+		<id>https://wrong.technology/posts/pyodide-update-1/</id>
+		<content type="html">&lt;p&gt;This turned out to be fun weekend hack. The Nitro runtime for Pyodide is ~13KB so far. Stupidly tiny.&lt;/p&gt;
+&lt;p&gt;If all goes well, the interactive docs should run in-browser.&lt;/p&gt;
+&lt;p&gt;After that, a playground with Monaco + Pyodide + Nitro should be another weekend hack.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Nitro v0.10 shipped with modifiable UIs</title>
+		<link href="https://wrong.technology/posts/nitro-ui-modifiable/"/>
+		<updated>2022-06-17T00:00:00Z</updated>
+		<id>https://wrong.technology/posts/nitro-ui-modifiable/</id>
+		<content type="html">&lt;p&gt;H2O Nitro v0.10 is released.&lt;/p&gt;
+&lt;p&gt;UIs are now modifiable: insert, update, remove parts efficiently using the same, simple API.&lt;/p&gt;
+&lt;p&gt;Hints read like plain English: &amp;quot;insert after&amp;quot;, &amp;quot;remove before&amp;quot;, &amp;quot;view at&amp;quot;, and so on.&lt;/p&gt;
+&lt;p&gt;More: &lt;a href=&quot;https://nitro.h2o.ai/editing/&quot;&gt;https://nitro.h2o.ai/editing/&lt;/a&gt;&lt;/p&gt;
+&lt;pre class=&quot;language-py&quot;&gt;&lt;code class=&quot;language-py&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# Display some boxes:&lt;/span&gt;&lt;br /&gt;view&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;br /&gt;    box&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;Blue 1&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; background&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;$blue&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; color&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;white&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;    box&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;Blue 2&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; background&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;$blue&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; color&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;white&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; name&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;blue2&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;    box&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;Blue 3&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; background&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;$blue&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; color&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;white&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;# Append a box:&lt;/span&gt;&lt;br /&gt;view&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;br /&gt;    box&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;Appended&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; background&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;$lava&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; color&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;white&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;    insert&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;# Insert a box before `blue2`:&lt;/span&gt;&lt;br /&gt;view&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;br /&gt;    box&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;Inserted&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; background&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;$lava&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; color&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;white&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;    insert&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; before&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;blue2&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;# Overwrite two boxes with three boxes after `blue2`:&lt;/span&gt;&lt;br /&gt;view&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;br /&gt;    box&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;Overwritten 1&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; background&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;$lava&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; color&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;white&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;    box&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;Overwritten 2&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; background&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;$lava&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; color&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;white&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;    box&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;Overwritten 3&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; background&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;$lava&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; color&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;white&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;    after&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;blue2&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;# Remove everything before `blue2`:&lt;/span&gt;&lt;br /&gt;view&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;remove&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; before&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;blue2&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;br /&gt;&lt;/code&gt;&lt;/pre&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Nitro client/server protocol documentation</title>
+		<link href="https://wrong.technology/posts/protocol-docs/"/>
+		<updated>2022-06-16T00:00:00Z</updated>
+		<id>https://wrong.technology/posts/protocol-docs/</id>
+		<content type="html">&lt;p&gt;The client/server protocol used in Nitro has some basic documentation now.&lt;/p&gt;
+&lt;p&gt;We should be able to start some initial work on R and Go language support once v0.11 ships.&lt;/p&gt;
+&lt;p&gt;More: &lt;a href=&quot;https://nitro.h2o.ai/protocol/&quot;&gt;https://nitro.h2o.ai/protocol/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://nitro.h2o.ai/protocol/&quot;&gt;&lt;img src=&quot;https://wrong.technology/img/protocol-docs.png&quot; alt=&quot;Protocol docs&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Nitro apps need to work entirely in-browser</title>
+		<link href="https://wrong.technology/posts/pyodide-idea/"/>
+		<updated>2022-06-15T00:00:00Z</updated>
+		<id>https://wrong.technology/posts/pyodide-idea/</id>
+		<content type="html">&lt;p&gt;Idea from customer, and now a stretch goal for July 2022:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Run Nitro apps entirely in-browser via &lt;a href=&quot;https://pyodide.org/&quot;&gt;Pyodide&lt;/a&gt;. No HTML/JS/CSS knowledge required.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Should make it simpler to build apps compared to starting from scratch with &lt;a href=&quot;https://pyscript.net/&quot;&gt;PyScript&lt;/a&gt;, which appears to be a thin layer over Pyodide.&lt;/p&gt;
+&lt;p&gt;Also, video games once graphics are in ;)&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Writing plugins for Nitro</title>
+		<link href="https://wrong.technology/posts/writing-plugins/"/>
+		<updated>2022-06-13T00:00:00Z</updated>
+		<id>https://wrong.technology/posts/writing-plugins/</id>
+		<content type="html">&lt;p&gt;It&#39;s easy to write little extensions to Nitro if you know a little Javascript. The Bokeh, Matplotlib, Seaborn and Altair plugins use the same technique.&lt;/p&gt;
+&lt;p&gt;More: &lt;a href=&quot;https://nitro.h2o.ai/writing-plugins/&quot;&gt;https://nitro.h2o.ai/writing-plugins/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://nitro.h2o.ai/writing-plugins/&quot;&gt;&lt;img src=&quot;https://wrong.technology/img/writing-plugins.png&quot; alt=&quot;Writing Plugins&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Nitrogen released</title>
+		<link href="https://wrong.technology/posts/nitro-nitrogen/"/>
+		<updated>2022-06-10T00:00:00Z</updated>
+		<id>https://wrong.technology/posts/nitro-nitrogen/</id>
+		<content type="html">&lt;p&gt;Nitro v0.9&#39;s &lt;code&gt;nitro run&lt;/code&gt; command understands &lt;em&gt;Nitrogen&lt;/em&gt;, a mini-language similar in principle to Dockerfiles. Put Nitrogen in Python comments. Makes sharing little single-file #apps easy. Saves users from repetitive installation instructions.&lt;/p&gt;
+&lt;p&gt;More: &lt;a href=&quot;https://nitro.h2o.ai/nitrogen/&quot;&gt;https://nitro.h2o.ai/nitrogen/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://nitro.h2o.ai/nitrogen/&quot;&gt;&lt;img src=&quot;https://wrong.technology/img/nitro-nitrogen.png&quot; alt=&quot;Nitrogen&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Nitro v0.9 shipped with CLI</title>
+		<link href="https://wrong.technology/posts/nitro-cli-release/"/>
+		<updated>2022-06-10T00:00:00Z</updated>
+		<id>https://wrong.technology/posts/nitro-cli-release/</id>
+		<content type="html">&lt;p&gt;Screencast: &lt;a href=&quot;https://twitter.com/CrunchingData/status/1535346872520306688&quot;&gt;https://twitter.com/CrunchingData/status/1535346872520306688&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Nitro v0.9 now has a CLI that lets you &lt;code&gt;nitro run&lt;/code&gt; a URL pointing to a #Python file or gist on Github or anywhere else. Makes it easy to run examples: just copy/paste commands from the docs into your terminal.&lt;/p&gt;
+&lt;p&gt;More: &lt;a href=&quot;https://nitro.h2o.ai/cli/&quot;&gt;https://nitro.h2o.ai/cli/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://wrong.technology/img/nitro-cli-release.png&quot; alt=&quot;Nitro CLI docs&quot; /&gt;&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Nitrogen - A rough prototype</title>
+		<link href="https://wrong.technology/posts/nitrogen-prototype/"/>
+		<updated>2022-06-04T00:00:00Z</updated>
+		<id>https://wrong.technology/posts/nitrogen-prototype/</id>
+		<content type="html">&lt;p&gt;Screencast: &lt;a href=&quot;https://twitter.com/CrunchingData/status/1533123923423834113&quot;&gt;https://twitter.com/CrunchingData/status/1533123923423834113&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;nitro run URL&lt;/code&gt; fetches a &lt;code&gt;.py&lt;/code&gt; file from a gist, sets up a local virtual env, downloads additional datasets or files, and finally launches the app. A Dockerfile-like spec is required somewhere in the comments. No Docker involved. Just need Python.&lt;/p&gt;
+&lt;p&gt;A single-command app runner like this makes it easy to share, clone, remix, run data apps without someone&#39;s cloud-hosting thingy in between. Creating git repos and readmes for each app is time-consuming and avoidable. Github gists and Gitlab snippets are low-friction.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;nitro run&lt;/code&gt; isn&#39;t limited to Nitro apps (Nitro is a lib, not a server). The screencast above is simply launching a bog standard Flask app with Nitro and Bokeh in it, with the Palmer penguins CSV fetched on the fly. You could just as well run Tornado, Starlette, or Django.&lt;/p&gt;
+&lt;p&gt;The new &lt;code&gt;nitro&lt;/code&gt; command is a zero-dependency executable written in Go. Planning to replace the built-in Nitro wheel&#39;s CLI with this one. Makes it easier to add support for other languages, including starter apps and templates.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Use Altair and Vega plots in Nitro apps</title>
+		<link href="https://wrong.technology/posts/altair-plugin/"/>
+		<updated>2022-05-31T00:00:00Z</updated>
+		<id>https://wrong.technology/posts/altair-plugin/</id>
+		<content type="html">&lt;p&gt;Nitro now has a plugin for the excellent Altair package: &lt;a href=&quot;https://github.com/h2oai/nitro-altair&quot;&gt;https://github.com/h2oai/nitro-altair&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Makes it easy to render Vega and Vega-Lite visualizations in apps.&lt;/p&gt;
+&lt;p&gt;Here&#39;s the plugin in action:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://wrong.technology/img/altair-plugin.gif&quot; alt=&quot;Altair Plugin&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;install&quot; tabindex=&quot;-1&quot;&gt;Install &lt;a class=&quot;direct-link&quot; href=&quot;https://wrong.technology/posts/altair-plugin/#install&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;pip install h2o-nitro-altair
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;usage&quot; tabindex=&quot;-1&quot;&gt;Usage &lt;a class=&quot;direct-link&quot; href=&quot;https://wrong.technology/posts/altair-plugin/#usage&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Import the plugin:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&quot;language-py&quot;&gt;&lt;code class=&quot;language-py&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; h2o_nitro_altair &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; altair_plugin&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; altair_box&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;Register the plugin:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&quot;language-py&quot;&gt;&lt;code class=&quot;language-py&quot;&gt;nitro &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; View&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;main&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; title&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;My App&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; caption&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;v1.0&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; plugins&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;altair_plugin&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;Use the plugin:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&quot;language-py&quot;&gt;&lt;code class=&quot;language-py&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# Make a chart:&lt;/span&gt;&lt;br /&gt;chart &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; alt&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Chart&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cars&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;mark_point&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;encode&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;br /&gt;    x&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;Horsepower&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;    y&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;Miles_per_Gallon&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;    color&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;Origin&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;interactive&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;# Display the chart:&lt;/span&gt;&lt;br /&gt;view&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;altair_box&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;chart&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;advanced-usage&quot; tabindex=&quot;-1&quot;&gt;Advanced Usage &lt;a class=&quot;direct-link&quot; href=&quot;https://wrong.technology/posts/altair-plugin/#advanced-usage&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;You can pass &lt;a href=&quot;https://github.com/vega/vega-embed#options&quot;&gt;Vega Embed Options&lt;/a&gt; to &lt;code&gt;altair_box()&lt;/code&gt; for&lt;br /&gt;
+more control:&lt;/p&gt;
+&lt;pre class=&quot;language-py&quot;&gt;&lt;code class=&quot;language-py&quot;&gt;altair_box&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;chart&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; options&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;renderer&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;svg&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; scaleFactor&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Use Seaborn in Nitro apps</title>
+		<link href="https://wrong.technology/posts/seaborn-plugin/"/>
+		<updated>2022-05-30T00:00:00Z</updated>
+		<id>https://wrong.technology/posts/seaborn-plugin/</id>
+		<content type="html">&lt;p&gt;v0.2 of the &lt;a href=&quot;https://github.com/h2oai/nitro-matplotlib&quot;&gt;Matplotlib plugin&lt;/a&gt; adds support for capturing the &lt;code&gt;pyplot&lt;/code&gt; context, which means the Seaborn package works out of the box.&lt;/p&gt;
+&lt;p&gt;If a figure is not provided to &lt;code&gt;matplotlib_box()&lt;/code&gt;, the global &lt;code&gt;matplotlib.pyplot&lt;/code&gt; instance is used as the source. This is useful when you&#39;re using something like Seaborn, which relies on matplotlib.pyplot, but not optimal when used inside a web app.&lt;/p&gt;
+&lt;p&gt;pyplot maintains references to the opened figures to make &lt;code&gt;show()&lt;/code&gt; work, but this will cause memory leaks unless the figures are properly closed.&lt;/p&gt;
+&lt;p&gt;Here&#39;s the plugin in action:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://wrong.technology/img/seaborn-plugin.gif&quot; alt=&quot;Seaborn Plugin&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;usage&quot; tabindex=&quot;-1&quot;&gt;Usage &lt;a class=&quot;direct-link&quot; href=&quot;https://wrong.technology/posts/seaborn-plugin/#usage&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;pre class=&quot;language-py&quot;&gt;&lt;code class=&quot;language-py&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# Source: https://seaborn.pydata.org/examples/hexbin_marginals.html&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;sns&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;set_theme&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;style&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;ticks&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;br /&gt;rs &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; np&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;random&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;RandomState&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;br /&gt;x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; rs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;gamma&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; size&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;br /&gt;y &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;.5&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; rs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;normal&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;size&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;sns&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;jointplot&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; y&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;y&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; kind&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;hex&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; color&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;#4CB391&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;view&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;Hexbin&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; matplotlib_box&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Use Matplotlib in Nitro apps</title>
+		<link href="https://wrong.technology/posts/matplotlib-plugin/"/>
+		<updated>2022-05-29T00:00:00Z</updated>
+		<id>https://wrong.technology/posts/matplotlib-plugin/</id>
+		<content type="html">&lt;p&gt;Published a new plugin for using Matplotlib plots in Nitro apps: &lt;a href=&quot;https://github.com/h2oai/nitro-matplotlib&quot;&gt;https://github.com/h2oai/nitro-matplotlib&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Uses the &lt;a href=&quot;https://matplotlib.org/3.5.0/users/explain/backends.html#the-builtin-backends&quot;&gt;Anti-Grain Geometry backend&lt;/a&gt;, since we&#39;re only going to render non-interactive PNG images.&lt;/p&gt;
+&lt;p&gt;Here&#39;s the plugin in action:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://wrong.technology/img/matplotlib-plugin.gif&quot; alt=&quot;Matplotlib Plugin&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;install&quot; tabindex=&quot;-1&quot;&gt;Install &lt;a class=&quot;direct-link&quot; href=&quot;https://wrong.technology/posts/matplotlib-plugin/#install&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;pip install h2o-nitro-matplotlib
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;usage&quot; tabindex=&quot;-1&quot;&gt;Usage &lt;a class=&quot;direct-link&quot; href=&quot;https://wrong.technology/posts/matplotlib-plugin/#usage&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Import the plugin:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&quot;language-py&quot;&gt;&lt;code class=&quot;language-py&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; h2o_nitro_matplotlib &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; matplotlib_plugin&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; matplotlib_box&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;Register the plugin:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&quot;language-py&quot;&gt;&lt;code class=&quot;language-py&quot;&gt;nitro &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; View&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;main&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; title&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;My App&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; caption&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;v1.0&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; plugins&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;matplotlib_plugin&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;Use the plugin:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&quot;language-py&quot;&gt;&lt;code class=&quot;language-py&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# Make a figure:&lt;/span&gt;&lt;br /&gt;x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; np&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;linspace&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;# Sample data.&lt;/span&gt;&lt;br /&gt;fig &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Figure&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;br /&gt;ax &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; fig&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;subplots&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;br /&gt;ax&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;plot&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; x&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; label&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;linear&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;# Plot some data on the axes.&lt;/span&gt;&lt;br /&gt;ax&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;plot&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;**&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; label&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;quadratic&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;# Plot more data on the axes...&lt;/span&gt;&lt;br /&gt;ax&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;plot&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;**&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; label&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;cubic&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;# ... and some more.&lt;/span&gt;&lt;br /&gt;ax&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;set_xlabel&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;x label&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;# Add an x-label to the axes.&lt;/span&gt;&lt;br /&gt;ax&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;set_ylabel&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;y label&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;# Add a y-label to the axes.&lt;/span&gt;&lt;br /&gt;ax&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;legend&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;# Add a legend.&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;# Display the figure:&lt;/span&gt;&lt;br /&gt;view&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;matplotlib_box&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;fig&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>A Docker-like thing for apps</title>
+		<link href="https://wrong.technology/posts/nitrogen-proposal/"/>
+		<updated>2022-05-28T00:00:00Z</updated>
+		<id>https://wrong.technology/posts/nitrogen-proposal/</id>
+		<content type="html">&lt;p&gt;A rough proposal for a shebang-meets-dockerfile thingy, so that a .py file can specify its dependencies, and a &amp;quot;nitro run&amp;quot; command can directly launch an app from a file or gist or code snippet anywhere on the interwebs.&lt;/p&gt;
+&lt;h2 id=&quot;goal&quot; tabindex=&quot;-1&quot;&gt;Goal &lt;a class=&quot;direct-link&quot; href=&quot;https://wrong.technology/posts/nitrogen-proposal/#goal&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Execute apps locally given one of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;nitro run foo.py&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;nitro run https://gist.github.com/user/hash&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;notes&quot; tabindex=&quot;-1&quot;&gt;Notes &lt;a class=&quot;direct-link&quot; href=&quot;https://wrong.technology/posts/nitrogen-proposal/#notes&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The deps for the app are self-contained in the &lt;code&gt;.py&lt;/code&gt; file using a shebang-meets-dockerfile thingy:&lt;/p&gt;
+&lt;pre class=&quot;language-py&quot;&gt;&lt;code class=&quot;language-py&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# --- env ---&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;# USE venv&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;# RUN pip install pandas bokeh flask h2o-nitro&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;# RUN FLASK_APP=app.py flask run&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;# --- !env ---&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token keyword&quot;&gt;pass&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;or&lt;/p&gt;
+&lt;pre class=&quot;language-py&quot;&gt;&lt;code class=&quot;language-py&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# --- env ---&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;# USE venv&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;# FILE requirements.txt EOF&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;# pandas==4.5&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;# bokeh&gt;=0.4.2&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;# flask&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;# h2o-nitro&gt;0.8.2&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;# EOF&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;# RUN pip install -r requirements.txt&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;# RUN FLASK_APP=app.py flask run&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;# --- !env ---&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token keyword&quot;&gt;pass&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Supported commands are&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;USE&lt;/code&gt; uses venv, conda, poetry, pipenv, etc.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;FILE&lt;/code&gt; creates a file relative to cwd.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;RUN&lt;/code&gt; executes a shell command.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GET&lt;/code&gt; fetches a file given a relative or absolute URL.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;COPY&lt;/code&gt; copies, moves, renames local files.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Link: &lt;a href=&quot;https://github.com/h2oai/nitro/issues/5&quot;&gt;https://github.com/h2oai/nitro/issues/5&lt;/a&gt;&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Use Bokeh in Nitro apps</title>
+		<link href="https://wrong.technology/posts/bokeh-plugin/"/>
+		<updated>2022-05-28T00:00:00Z</updated>
+		<id>https://wrong.technology/posts/bokeh-plugin/</id>
+		<content type="html">&lt;p&gt;Nitro v0.8 has an nifty little plugin mechanism to add new capabilities to Nitro while keeping the core compact. Hoping to get a modest Python plugin ecosystem going for using Pandas, matplotlib, etc.&lt;/p&gt;
+&lt;p&gt;Published a Bokeh plugin today: &lt;a href=&quot;https://github.com/h2oai/nitro-bokeh&quot;&gt;https://github.com/h2oai/nitro-bokeh&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;And here&#39;s the plugin in action:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://wrong.technology/img/bokeh-plugin.gif&quot; alt=&quot;Bokeh Plugin&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;install&quot; tabindex=&quot;-1&quot;&gt;Install &lt;a class=&quot;direct-link&quot; href=&quot;https://wrong.technology/posts/bokeh-plugin/#install&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;pip install h2o-nitro-bokeh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;usage&quot; tabindex=&quot;-1&quot;&gt;Usage &lt;a class=&quot;direct-link&quot; href=&quot;https://wrong.technology/posts/bokeh-plugin/#usage&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Import the plugin:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&quot;language-py&quot;&gt;&lt;code class=&quot;language-py&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; h2o_nitro_bokeh &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; bokeh_plugin&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; bokeh_box&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;Register the plugin:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&quot;language-py&quot;&gt;&lt;code class=&quot;language-py&quot;&gt;nitro &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; View&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;main&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; title&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;My App&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; caption&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;v1.0&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; plugins&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;bokeh_plugin&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;Use the plugin:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&quot;language-py&quot;&gt;&lt;code class=&quot;language-py&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# Make a plot&lt;/span&gt;&lt;br /&gt;x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;br /&gt;y &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;br /&gt;p &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; figure&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;title&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Simple line example&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; x_axis_label&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;x&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; y_axis_label&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;y&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;br /&gt;p&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;line&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; y&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; legend_label&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Temp.&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; line_width&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;token comment&quot;&gt;# Display the plot&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;view&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;bokeh_box&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;p&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+</content>
+	</entry>
+	
+	<entry>
 		<title>Introducing Nitro</title>
 		<link href="https://wrong.technology/posts/introducing-nitro/"/>
-		<updated>2021-05-27T00:00:00Z</updated>
+		<updated>2022-05-27T00:00:00Z</updated>
 		<id>https://wrong.technology/posts/introducing-nitro/</id>
 		<content type="html">&lt;p&gt;I&#39;ve been prototyping a new way to rapidly make web apps using pure #Python: &lt;a href=&quot;https://nitro.h2o.ai/&quot;&gt;H2O Nitro&lt;/a&gt;. It lets you program interactive GUIs using simple top-down code (no events, handlers, callbacks). Here’s a 7-page app in just 7 Python statements.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://wrong.technology/img/app-recruitment.gif&quot; alt=&quot;Recruitment App&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://wrong.technology/img/introducing-nitro.gif&quot; alt=&quot;Recruitment App&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;No HTML/CSS/Javascript know-how required. Plus, it&#39;s a library, not a full-blown web framework, so plugs into Flask, Tornado and Starlette. Think of it like a tiny edition of &lt;a href=&quot;https://github.com/h2oai/wave&quot;&gt;H2O Wave&lt;/a&gt;. Also, it&#39;s pre-alpha, so don&#39;t use it in production yet!&lt;/p&gt;
 &lt;p&gt;We develop lots of apps at H2O. Ideas get prototyped, demo&#39;d, forked, cloned, modified all the time. There&#39;s 200-250 Wave  apps now - I&#39;ve lost count. And we&#39;re always looking for better, faster ways to go from prototype to production, while not losing on performance.&lt;/p&gt;
 &lt;p&gt;So what&#39;s the motivation behind Nitro? App development is complicated (ahem). Leaving aside UX/UI design, most apps, at the implementation level, deal with at least two tiers: client and server. Each has its own programming language and framework.&lt;/p&gt;
