@@ -5,10 +5,40 @@
 	
 	<link href="https://wrong.technology/feed/feed.xml" rel="self"/>
 	<link href="https://wrong.technology/"/>
-	<updated>2022-06-25T01:19:27Z</updated>
+	<updated>2021-05-27T00:00:00Z</updated>
 	<id>https://wrong.technology/</id>
 	<author>
 		<name>Prithvi Prabhu</name>
 		<email>prithvi.prabhu@gmail.com</email>
 	</author>
+	
+	<entry>
+		<title>Introducing Nitro</title>
+		<link href="https://wrong.technology/posts/introducing-nitro/"/>
+		<updated>2021-05-27T00:00:00Z</updated>
+		<id>https://wrong.technology/posts/introducing-nitro/</id>
+		<content type="html">&lt;p&gt;I&#39;ve been prototyping a new way to rapidly make web apps using pure #Python: &lt;a href=&quot;https://nitro.h2o.ai/&quot;&gt;H2O Nitro&lt;/a&gt;. It lets you program interactive GUIs using simple top-down code (no events, handlers, callbacks). Here’s a 7-page app in just 7 Python statements.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://wrong.technology/img/app-recruitment.gif&quot; alt=&quot;Recruitment App&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;No HTML/CSS/Javascript know-how required. Plus, it&#39;s a library, not a full-blown web framework, so plugs into Flask, Tornado and Starlette. Think of it like a tiny edition of &lt;a href=&quot;https://github.com/h2oai/wave&quot;&gt;H2O Wave&lt;/a&gt;. Also, it&#39;s pre-alpha, so don&#39;t use it in production yet!&lt;/p&gt;
+&lt;p&gt;We develop lots of apps at H2O. Ideas get prototyped, demo&#39;d, forked, cloned, modified all the time. There&#39;s 200-250 Wave  apps now - I&#39;ve lost count. And we&#39;re always looking for better, faster ways to go from prototype to production, while not losing on performance.&lt;/p&gt;
+&lt;p&gt;So what&#39;s the motivation behind Nitro? App development is complicated (ahem). Leaving aside UX/UI design, most apps, at the implementation level, deal with at least two tiers: client and server. Each has its own programming language and framework.&lt;/p&gt;
+&lt;p&gt;This implies at least two different kinds of developers, usually more if you include databases. Then there&#39;s the added (accidental) complexity of having to define and maintain an API or protocol for the UI and server to communicate correctly, even in the simplest of apps.&lt;/p&gt;
+&lt;p&gt;In contrast, authoring command-line apps is fairly simple. With Python, for example, &lt;code&gt;input()&lt;/code&gt; waits for some input, and &lt;code&gt;print()&lt;/code&gt; shows some output. String together a sequence of &lt;code&gt;input()&lt;/code&gt; and &lt;code&gt;print()&lt;/code&gt; statements, and you&#39;ve got yourself an interactive app.&lt;/p&gt;
+&lt;p&gt;What if we could bring that level of simplicity to GUIs and client-server programming?&lt;/p&gt;
+&lt;p&gt;Granted, CLIs are not the unwieldy all-singing, all-dancing, event-driven state machines that GUIs are. But then again, a client server app with a GUI is not just any state machine, it&#39;s a distributed state machine.&lt;/p&gt;
+&lt;p&gt;Nobody will argue that managing state in a distributed state machine is way more complex to reason about and implement correctly compared to a non-distributed one.&lt;/p&gt;
+&lt;p&gt;So, if we have to develop interactive, graphical, distributed systems without having to deal with clients and servers and all the plumbing and ceremony in between, what would the simplest possible API look like?&lt;/p&gt;
+&lt;p&gt;What would UI composition and layout code look like? What would form and input handling look like? What would UI flow and navigation control look like? How would we make all that code as minimal as possible?&lt;/p&gt;
+&lt;p&gt;This is not just minimalism for minimalism&#39;s sake. Code rots. More code has more bugs. More code means more to read and understand and debate and reason about. It&#39;s also expensive to maintain: more code needs more programmers, and programmers have N^2 communication costs.&lt;/p&gt;
+&lt;p&gt;The best code, therefore, is no code at all. So then what&#39;s a good balance between code brevity, clarity and expressiveness without losing too much in the way of performance?&lt;/p&gt;
+&lt;p&gt;Further, can we stick with just one programming language for building the entire app? Can we target web, mobile and desktop apps from the same codebase? How quickly can we ship prototypes, get feedback, and iterate towards a finished product?&lt;/p&gt;
+&lt;p&gt;More important, how can such a thing stay laser-focused on UIs, and not reinvent the wheel on networking, security, persistence, deployment and hosting? Can it plug into a framework of your choice, or even existing applications, yet provide a simpler way to ship front-ends?&lt;/p&gt;
+&lt;p&gt;H2O Nitro is a very, very early stage prototype that tries to address the above requirements. It’s currently Python-only and only targets web apps, but we want to tackle R, Julia, Go at a minimum, and ship iOS/Android/Linux/OSX/Windows support by end 2022. Fingers crossed.&lt;/p&gt;
+&lt;p&gt;So far the API and ergonomics feel right, and initial feedback has been really good, so it seems to be on the right track.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Big caveat 1:&lt;/strong&gt; Nitro is currently experimental. The API is mostly stable, but has critical missing features like cross-platform data visualization, back-button support in browsers, internationalization/localization, and live (real-time) sync. That said, we’ve started using it internally at H2O, with planned production usage, so expect rapid improvements and stability.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Big caveat 2:&lt;/strong&gt; The UI and look/feel are strongly opinionated. Nitro is for you if you know Python basics, want to ship apps quickly, care about performance, don&#39;t want to futz around with obtuse front-end tooling, and don&#39;t care about a highly custom/branded UI.&lt;/p&gt;
+&lt;p&gt;That&#39;s it for now. Follow the project on Github at &lt;a href=&quot;https://github.com/h2oai/nitro&quot;&gt;https://github.com/h2oai/nitro&lt;/a&gt; or &lt;a href=&quot;https://twitter.com/h2o_nitro&quot;&gt;https://twitter.com/h2o_nitro&lt;/a&gt; for updates. I’m really excited about it, and would love to know what you think, what you’d like to see, and where you’d like to see it go.&lt;/p&gt;
+&lt;p&gt;Happy hacking!&lt;/p&gt;
+</content>
+	</entry>
 </feed>
