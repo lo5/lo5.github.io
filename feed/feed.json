@@ -1,0 +1,14 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Wrong Technology",
+  "language": "en",
+  "home_page_url": "https://wrong.technology/",
+  "feed_url": "https://wrong.technology/feed/feed.json",
+  "description": "A web log about stuff.",
+  "author": {
+    "name": "Prithvi Prabhu",
+    "url": "https://wrong.technology/about-me/"
+  },
+  "items": [
+  ]
+}

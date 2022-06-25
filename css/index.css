@@ -1,0 +1,234 @@
+/* Colors */
+:root {
+  --lightgray: #e0e0e0;
+  --gray: #C0C0C0;
+  --darkgray: #333;
+  --light: #888;
+  --navy: #681da8;
+  --blue: #1a0dab;
+  --white: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  color: var(--darkgray);
+  background-color: var(--white);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+  font-weight: 500;
+}
+
+a {
+  color: var(--blue);
+}
+
+a:visited {
+  color: var(--navy);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+p,
+.tmpl-post li,
+img,
+.post-paging {
+  max-width: 37.5em;
+}
+
+p,
+.tmpl-post li {
+  line-height: 1.45;
+}
+
+.tmpl-post ul {
+  list-style: none;
+  text-indent: -1rem;
+  padding-left: 1.5rem;
+}
+
+.tmpl-post ul>li:before {
+  content: "–";
+  text-indent: -1rem;
+  margin-right: .5rem;
+}
+
+.tmpl-post time {
+  margin-right: 1em;
+  font-style: italic;
+}
+
+main {
+  padding: 0 1rem 1rem;
+}
+
+header {
+  padding: 1rem;
+}
+
+header h1 {
+  font-size: 1.25em;
+}
+
+header h1 a,
+header h1 a:visited {
+  text-decoration: none;
+  color: var(--darkgray);
+}
+
+table {
+  margin: 1em 0;
+}
+
+table td,
+table th {
+  padding-right: 1em;
+}
+
+pre,
+code {
+  font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
+  line-height: 1.5;
+}
+
+pre {
+  font-size: 14px;
+  line-height: 1.375;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  padding: 1em;
+  margin: .5em 0;
+  background-color: #f6f6f6;
+}
+
+code {
+  word-break: break-all;
+}
+
+/* Header */
+.nav {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  display: inline-block;
+  margin-right: 0.25em;
+}
+
+.nav-item a,
+.nav-item a:visited {
+  text-decoration: none;
+}
+
+.nav-item-active {
+  font-weight: 700;
+}
+
+/* Posts list */
+.postlist {
+  padding: 0;
+}
+
+.postlist-item {
+  display: flex;
+  margin-bottom: 0.75em;
+}
+
+.postlist-item>* {
+  display: flex;
+  flex-direction: column;
+}
+
+.postlist-date {
+  font-style: italic;
+  min-width: 100px;
+}
+
+.postlist-link {}
+
+.post-tags {
+  margin-top: 2em;
+}
+
+.post-tag,
+.post-tag:visited {
+  text-decoration: none;
+  color: var(--light);
+}
+
+.post-tag:hover {
+  text-decoration: underline;
+}
+
+.post-paging {
+  margin: 3em 0 0;
+  padding: 1em 0 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  border-top: 1px solid var(--light);
+}
+
+.post-paging>li:last-child {
+  text-align: right;
+}
+
+/* Warning */
+.warning {
+  background-color: #ffc;
+  padding: 1em 0.625em;
+}
+
+.warning ol:only-child {
+  margin: 0;
+}
+
+/* Direct Links / Markdown Headers */
+.direct-link {
+  font-family: sans-serif;
+  text-decoration: none;
+  font-style: normal;
+  margin-left: .1em;
+}
+
+a[href].direct-link,
+a[href].direct-link:visited {
+  color: transparent;
+}
+
+a[href].direct-link:focus,
+a[href].direct-link:focus:visited,
+:hover>a[href].direct-link,
+:hover>a[href].direct-link:visited {
+  color: #aaa;
+}
+
+footer {
+  margin-bottom: 3em;
+}

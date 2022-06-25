@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducing Nitro</title>
+    <meta name="description" content="A web log about stuff.">
+    <meta name="generator" content="Eleventy v1.0.1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-one-light.css">
+    <link rel="stylesheet" href="/css/prism-diff.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Wrong Technology">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Wrong Technology">
+  </head>
+  <body>
+    <header>
+      <h1 class="home"><a href="/">Wrong Technology</a></h1>
+      <ul class="nav">
+        <li class="nav-item"><a href="/">Home</a></li>
+        <li class="nav-item"><a href="/about/">About</a></li>
+        <li class="nav-item"><a href="/projects/">Projects</a></li>
+        <li class="nav-item"><a href="https://www.linkedin.com/in/prithviprabhu/" target="_blank">LinkedIn</a></li>
+        <li class="nav-item"><a href="https://github.com/lo5" target="_blank">Github</a></li>
+        <li class="nav-item"><a href="https://twitter.com/CrunchingData" target="_blank">Twitter</a></li>
+      </ul>
+    </header>
+
+    <main class="tmpl-post">
+      <h1>Introducing Nitro</h1>
+
+<time datetime="2021-05-27">27 May 2021</time>
+
+<p>I've been prototyping a new way to rapidly make web apps using pure #Python: <a href="https://nitro.h2o.ai">H2O Nitro</a>. It lets you program interactive GUIs using simple top-down code (no events, handlers, callbacks). Here’s a 7-page app in just 7 Python statements.</p>
+<p><img src="/img/app-recruitment.gif" alt="Recruitment App"></p>
+<p>No HTML/CSS/Javascript know-how required. Plus, it's a library, not a full-blown web framework, so plugs into Flask, Tornado and Starlette. Think of it like a tiny edition of <a href="https://github.com/h2oai/wave">H2O Wave</a>. Also, it's pre-alpha, so don't use it in production yet!</p>
+<p>We develop lots of apps at H2O. Ideas get prototyped, demo'd, forked, cloned, modified all the time. There's 200-250 Wave  apps now - I've lost count. And we're always looking for better, faster ways to go from prototype to production, while not losing on performance.</p>
+<p>So what's the motivation behind Nitro? App development is complicated (ahem). Leaving aside UX/UI design, most apps, at the implementation level, deal with at least two tiers: client and server. Each has its own programming language and framework.</p>
+<p>This implies at least two different kinds of developers, usually more if you include databases. Then there's the added (accidental) complexity of having to define and maintain an API or protocol for the UI and server to communicate correctly, even in the simplest of apps.</p>
+<p>In contrast, authoring command-line apps is fairly simple. With Python, for example, <code>input()</code> waits for some input, and <code>print()</code> shows some output. String together a sequence of <code>input()</code> and <code>print()</code> statements, and you've got yourself an interactive app.</p>
+<p>What if we could bring that level of simplicity to GUIs and client-server programming?</p>
+<p>Granted, CLIs are not the unwieldy all-singing, all-dancing, event-driven state machines that GUIs are. But then again, a client server app with a GUI is not just any state machine, it's a distributed state machine.</p>
+<p>Nobody will argue that managing state in a distributed state machine is way more complex to reason about and implement correctly compared to a non-distributed one.</p>
+<p>So, if we have to develop interactive, graphical, distributed systems without having to deal with clients and servers and all the plumbing and ceremony in between, what would the simplest possible API look like?</p>
+<p>What would UI composition and layout code look like? What would form and input handling look like? What would UI flow and navigation control look like? How would we make all that code as minimal as possible?</p>
+<p>This is not just minimalism for minimalism's sake. Code rots. More code has more bugs. More code means more to read and understand and debate and reason about. It's also expensive to maintain: more code needs more programmers, and programmers have N^2 communication costs.</p>
+<p>The best code, therefore, is no code at all. So then what's a good balance between code brevity, clarity and expressiveness without losing too much in the way of performance?</p>
+<p>Further, can we stick with just one programming language for building the entire app? Can we target web, mobile and desktop apps from the same codebase? How quickly can we ship prototypes, get feedback, and iterate towards a finished product?</p>
+<p>More important, how can such a thing stay laser-focused on UIs, and not reinvent the wheel on networking, security, persistence, deployment and hosting? Can it plug into a framework of your choice, or even existing applications, yet provide a simpler way to ship front-ends?</p>
+<p>H2O Nitro is a very, very early stage prototype that tries to address the above requirements. It’s currently Python-only and only targets web apps, but we want to tackle R, Julia, Go at a minimum, and ship iOS/Android/Linux/OSX/Windows support by end 2022. Fingers crossed.</p>
+<p>So far the API and ergonomics feel right, and initial feedback has been really good, so it seems to be on the right track.</p>
+<p><strong>Big caveat 1:</strong> Nitro is currently experimental. The API is mostly stable, but has critical missing features like cross-platform data visualization, back-button support in browsers, internationalization/localization, and live (real-time) sync. That said, we’ve started using it internally at H2O, with planned production usage, so expect rapid improvements and stability.</p>
+<p><strong>Big caveat 2:</strong> The UI and look/feel are strongly opinionated. Nitro is for you if you know Python basics, want to ship apps quickly, care about performance, don't want to futz around with obtuse front-end tooling, and don't care about a highly custom/branded UI.</p>
+<p>That's it for now. Follow the project on Github at <a href="https://github.com/h2oai/nitro">https://github.com/h2oai/nitro</a> or <a href="https://twitter.com/h2o_nitro">https://twitter.com/h2o_nitro</a> for updates. I’m really excited about it, and would love to know what you think, what you’d like to see, and where you’d like to see it go.</p>
+<p>Happy hacking!</p>
+
+
+<div class="post-tags"><span><a href="/tags/nitro/" class="post-tag">#nitro</a> </span
+</div>
+
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <!-- Current page: /posts/introducing-nitro/ -->
+  </body>
+</html>

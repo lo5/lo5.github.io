@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>Wrong Technology</title>
+	<subtitle>A web log about stuff.</subtitle>
+	
+	<link href="https://wrong.technology/feed/feed.xml" rel="self"/>
+	<link href="https://wrong.technology/"/>
+	<updated>2022-06-25T01:19:27Z</updated>
+	<id>https://wrong.technology/</id>
+	<author>
+		<name>Prithvi Prabhu</name>
+		<email>prithvi.prabhu@gmail.com</email>
+	</author>
+</feed>

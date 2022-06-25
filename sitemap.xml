@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://wrong.technology/</loc>
+    <lastmod>2022-06-25</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wrong.technology/about/</loc>
+    <lastmod>2022-06-25</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wrong.technology/page-list/</loc>
+    <lastmod>2022-06-25</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wrong.technology/projects/</loc>
+    <lastmod>2022-06-25</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wrong.technology/tags/</loc>
+    <lastmod>2022-06-25</lastmod>
+  </url>
+</urlset>

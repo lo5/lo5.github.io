@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <meta name="description" content="A web log about stuff.">
+    <meta name="generator" content="Eleventy v1.0.1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-one-light.css">
+    <link rel="stylesheet" href="/css/prism-diff.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Wrong Technology">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Wrong Technology">
+  </head>
+  <body>
+    <header>
+      <h1 class="home"><a href="/">Wrong Technology</a></h1>
+      <ul class="nav">
+        <li class="nav-item"><a href="/">Home</a></li>
+        <li class="nav-item"><a href="/about/">About</a></li>
+        <li class="nav-item nav-item-active"><a href="/projects/">Projects</a></li>
+        <li class="nav-item"><a href="https://www.linkedin.com/in/prithviprabhu/" target="_blank">LinkedIn</a></li>
+        <li class="nav-item"><a href="https://github.com/lo5" target="_blank">Github</a></li>
+        <li class="nav-item"><a href="https://twitter.com/CrunchingData" target="_blank">Twitter</a></li>
+      </ul>
+    </header>
+
+    <main class="tmpl-post">
+      <h1>Projects</h1>
+
+<time datetime="2022-06-25">25 Jun 2022</time>
+
+<h2 id="current" tabindex="-1">Current <a class="direct-link" href="#current" aria-hidden="true">#</a></h2>
+<ul>
+<li><a href="https://github.com/h2oai/nitro">H2O Nitro</a>: A super simple way to build web apps in Python (and soon desktop/mobile apps in R/Julia and other languages).</li>
+<li><a href="https://github.com/h2oai/wave">H2O Wave</a>: Realtime web apps and dashboards for Python/R.</li>
+</ul>
+<h2 id="h2o.ai" tabindex="-1"><a href="http://H2O.ai">H2O.ai</a> <a class="direct-link" href="#h2o.ai" aria-hidden="true">#</a></h2>
+<ul>
+<li><a href="https://twitter.com/crunchingdata/status/1187627135952769029">H2O Q</a>: Analytical decision-support platform, with search-driven exploratory data analysis and visualization, data prep and application runtime. Evolved into <a href="https://github.com/h2oai/wave">H2O Wave</a> and <a href="https://h2o.ai/platform/ai-cloud/">H2O AI Cloud</a>.</li>
+<li><a href="https://youtu.be/S9cmi89fvT8">H2O Hotspot</a>: A system for building immersive, animated graphical interfaces and FUIs by exporting designs directly from Figma/Sketch and compositing them into web UIs.</li>
+<li><a href="https://www.h2o.ai/products/h2o-driverless-ai/">Driverless AI</a>: <a href="http://H2O.ai">H2O.ai</a>'s flagship automatic machine learning platform.</li>
+<li>Driverless AI for Excel: A native add-in for automatic machine learning in Microsoft Excel.</li>
+<li><a href="https://github.com/h2oai/h2o-flow">Flow</a>: a <a href="https://www.h2o.ai/blog/introducing-flow/">hybrid GUI + REPL</a> environment for exploratory data analysis and machine learning. You can see it in action <a href="https://www.youtube.com/results?search_query=h2o+flow">here</a>. There is also a <a href="https://www.oreilly.com/library/view/practical-machine-learning/9781491964590/">book</a> about it.</li>
+<li><a href="http://docs.h2o.ai/steam/latest-stable/index.html">Steam</a>: a platform for cluster management, experiment hosting/execution, model management and model deployment.</li>
+<li>Echo: a real-time dashboard system (folded into H2O Wave).</li>
+<li>Flux: a rapid application development system (folded into H2O Wave).</li>
+<li><a href="https://github.com/h2oai/h2o.js">H2O.js</a>: a Javascript-to-Rapids transpiler for executing a subset of Javascript on H2O for machine learning at scale.</li>
+<li><a href="https://github.com/h2oai/lightning">Lightning</a>: Statistical graphics library for browsers.</li>
+<li><a href="http://play.h2o.ai/">Play</a>: On-demand H2O cloud provisioning and management on AWS.</li>
+<li>H2O Excel Add-in: Predictive array-formulae for spreadsheet data.</li>
+</ul>
+<h2 id="startups" tabindex="-1">Startups <a class="direct-link" href="#startups" aria-hidden="true">#</a></h2>
+<p>Previously in 2010, I founded <a href="https://twitter.com/plot_io">Plot.io</a>, a web-based interactive visual analytics system based on Leland Wilkinson's <a href="https://www.springer.com/gp/book/9780387245447">Grammar of Graphics</a>. You can see it in action <a href="https://www.youtube.com/playlist?list=PLuJkLL3TgZXYRDcRxKL-Z0FFUEUmAs0US">here</a>.</p>
+<p>The front-end was originally authored in a custom Lisp dialect, transpiled to Coffeescript, then Javascript. The programming paradigm was inspired by <a href="https://www.flapjax-lang.org/">Flapjax</a>, based on <a href="https://wiki.haskell.org/Functional_Reactive_Programming">functional reactive programming</a> and <a href="https://en.wikipedia.org/wiki/Flow-based_programming">flow-based programming</a>, long before Elm or React/Redux were a thing. The entire user interface and visualization/rendering library minified down to ~150KB, a fourth of the size of the average web page back in 2010.</p>
+<p>As far as I'm aware, it was the first browser-based &quot;BI&quot; system in existence that worked without third-party plugins like Adobe SVG.</p>
+<p><a href="http://Plot.io">Plot.io</a> was acquired by <a href="https://en.wikipedia.org/wiki/Platfora">Platfora</a> in 2012, which in turn was acquired by <a href="https://www.workday.com/">Workday</a> in 2016. The product is currently called <a href="https://www.workday.com/en-us/products/analytics-reporting/overview.html">Prism</a>.</p>
+<h2 id="way-back" tabindex="-1">Way back <a class="direct-link" href="#way-back" aria-hidden="true">#</a></h2>
+<p>I was pretty laid back for a decade, and did a bunch of consulting gigs at 3Com, Abbott, Aon, Astra Zeneca, Elan, Genworth Financial, Glaxo SmithKline, Healthways, Herbalife, Metlife, Northwestern Mutual, Pfizer, Sun Microsystems and XL Re, via Infosys.</p>
+<p>Every engagement gave me hands-on experience working on everything from tried-and-trusted tech, to fads and flavor-of-the-day frameworks. That kind of broad, rapid-fire exposure helps develop intuition on what works, what does not, and dealing with all kinds of stakeholders, from fledgling engineers all the way to business sponsors.</p>
+
+
+<div class="post-tags">
+</div>
+
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <!-- Current page: /projects/ -->
+  </body>
+</html>
