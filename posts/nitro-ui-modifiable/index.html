@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nitro v0.10 shipped with modifiable UIs</title>
+    <meta name="description" content="A web log about stuff.">
+    <meta name="generator" content="Eleventy v1.0.1">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-one-light.css">
+    <link rel="stylesheet" href="/css/prism-diff.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Wrong Technology">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Wrong Technology">
+  </head>
+  <body>
+    <header>
+      <h1 class="home"><a href="/">Wrong Technology</a></h1>
+      <ul class="nav">
+        <li class="nav-item"><a href="/">Home</a></li>
+        <li class="nav-item"><a href="/about/">About</a></li>
+        <li class="nav-item"><a href="/projects/">Projects</a></li>
+        <li class="nav-item"><a href="https://www.linkedin.com/in/prithviprabhu/" target="_blank">LinkedIn</a></li>
+        <li class="nav-item"><a href="https://github.com/lo5" target="_blank">Github</a></li>
+        <li class="nav-item"><a href="https://twitter.com/CrunchingData" target="_blank">Twitter</a></li>
+      </ul>
+    </header>
+
+    <main class="tmpl-post">
+      <h1>Nitro v0.10 shipped with modifiable UIs</h1>
+
+<time datetime="2022-06-17">17 Jun 2022</time>
+
+<p>H2O Nitro v0.10 is released.</p>
+<p>UIs are now modifiable: insert, update, remove parts efficiently using the same, simple API.</p>
+<p>Hints read like plain English: &quot;insert after&quot;, &quot;remove before&quot;, &quot;view at&quot;, and so on.</p>
+<p>More: <a href="https://nitro.h2o.ai/editing/">https://nitro.h2o.ai/editing/</a></p>
+<pre class="language-py"><code class="language-py"><span class="token comment"># Display some boxes:</span><br>view<span class="token punctuation">(</span><br>    box<span class="token punctuation">(</span><span class="token string">'Blue 1'</span><span class="token punctuation">,</span> background<span class="token operator">=</span><span class="token string">'$blue'</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'white'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>    box<span class="token punctuation">(</span><span class="token string">'Blue 2'</span><span class="token punctuation">,</span> background<span class="token operator">=</span><span class="token string">'$blue'</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'white'</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">'blue2'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>    box<span class="token punctuation">(</span><span class="token string">'Blue 3'</span><span class="token punctuation">,</span> background<span class="token operator">=</span><span class="token string">'$blue'</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'white'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br><span class="token punctuation">)</span><br><br><span class="token comment"># Append a box:</span><br>view<span class="token punctuation">(</span><br>    box<span class="token punctuation">(</span><span class="token string">'Appended'</span><span class="token punctuation">,</span> background<span class="token operator">=</span><span class="token string">'$lava'</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'white'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>    insert<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span><br><span class="token punctuation">)</span><br><br><span class="token comment"># Insert a box before `blue2`:</span><br>view<span class="token punctuation">(</span><br>    box<span class="token punctuation">(</span><span class="token string">'Inserted'</span><span class="token punctuation">,</span> background<span class="token operator">=</span><span class="token string">'$lava'</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'white'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>    insert<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> before<span class="token operator">=</span><span class="token string">'blue2'</span><span class="token punctuation">,</span><br><span class="token punctuation">)</span><br><br><span class="token comment"># Overwrite two boxes with three boxes after `blue2`:</span><br>view<span class="token punctuation">(</span><br>    box<span class="token punctuation">(</span><span class="token string">'Overwritten 1'</span><span class="token punctuation">,</span> background<span class="token operator">=</span><span class="token string">'$lava'</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'white'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>    box<span class="token punctuation">(</span><span class="token string">'Overwritten 2'</span><span class="token punctuation">,</span> background<span class="token operator">=</span><span class="token string">'$lava'</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'white'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>    box<span class="token punctuation">(</span><span class="token string">'Overwritten 3'</span><span class="token punctuation">,</span> background<span class="token operator">=</span><span class="token string">'$lava'</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'white'</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>    after<span class="token operator">=</span><span class="token string">'blue2'</span><span class="token punctuation">,</span><br><span class="token punctuation">)</span><br><br><span class="token comment"># Remove everything before `blue2`:</span><br>view<span class="token punctuation">(</span>remove<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> before<span class="token operator">=</span><span class="token string">'blue2'</span><span class="token punctuation">)</span><br></code></pre>
+
+
+<div class="post-tags"><span><a href="/tags/nitro/" class="post-tag">#nitro</a> </span<span><a href="/tags/release/" class="post-tag">#release</a> </span
+</div>
+<div class="post-paging">
+  <span>&laquo; <a href="/posts/protocol-docs/">Nitro client/server protocol documentation</a></span>
+  <span><a href="/posts/pyodide-update-1/">Pyodide for Nitro: Progress update</a> &raquo;</span>
+</div>
+
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <!-- Current page: /posts/nitro-ui-modifiable/ -->
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use Seaborn in Nitro apps</title>
+    <meta name="description" content="A web log about stuff.">
+    <meta name="generator" content="Eleventy v1.0.1">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-one-light.css">
+    <link rel="stylesheet" href="/css/prism-diff.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Wrong Technology">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Wrong Technology">
+  </head>
+  <body>
+    <header>
+      <h1 class="home"><a href="/">Wrong Technology</a></h1>
+      <ul class="nav">
+        <li class="nav-item"><a href="/">Home</a></li>
+        <li class="nav-item"><a href="/about/">About</a></li>
+        <li class="nav-item"><a href="/projects/">Projects</a></li>
+        <li class="nav-item"><a href="https://www.linkedin.com/in/prithviprabhu/" target="_blank">LinkedIn</a></li>
+        <li class="nav-item"><a href="https://github.com/lo5" target="_blank">Github</a></li>
+        <li class="nav-item"><a href="https://twitter.com/CrunchingData" target="_blank">Twitter</a></li>
+      </ul>
+    </header>
+
+    <main class="tmpl-post">
+      <h1>Use Seaborn in Nitro apps</h1>
+
+<time datetime="2022-05-30">30 May 2022</time>
+
+<p>v0.2 of the <a href="https://github.com/h2oai/nitro-matplotlib">Matplotlib plugin</a> adds support for capturing the <code>pyplot</code> context, which means the Seaborn package works out of the box.</p>
+<p>If a figure is not provided to <code>matplotlib_box()</code>, the global <code>matplotlib.pyplot</code> instance is used as the source. This is useful when you're using something like Seaborn, which relies on matplotlib.pyplot, but not optimal when used inside a web app.</p>
+<p>pyplot maintains references to the opened figures to make <code>show()</code> work, but this will cause memory leaks unless the figures are properly closed.</p>
+<p>Here's the plugin in action:</p>
+<p><img src="/img/seaborn-plugin.gif" alt="Seaborn Plugin"></p>
+<h2 id="usage" tabindex="-1">Usage <a class="direct-link" href="#usage" aria-hidden="true">#</a></h2>
+<pre class="language-py"><code class="language-py"><span class="token comment"># Source: https://seaborn.pydata.org/examples/hexbin_marginals.html</span><br><br>sns<span class="token punctuation">.</span>set_theme<span class="token punctuation">(</span>style<span class="token operator">=</span><span class="token string">"ticks"</span><span class="token punctuation">)</span><br>rs <span class="token operator">=</span> np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>RandomState<span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span><br>x <span class="token operator">=</span> rs<span class="token punctuation">.</span>gamma<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> size<span class="token operator">=</span><span class="token number">1000</span><span class="token punctuation">)</span><br>y <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">.5</span> <span class="token operator">*</span> x <span class="token operator">+</span> rs<span class="token punctuation">.</span>normal<span class="token punctuation">(</span>size<span class="token operator">=</span><span class="token number">1000</span><span class="token punctuation">)</span><br><br>sns<span class="token punctuation">.</span>jointplot<span class="token punctuation">(</span>x<span class="token operator">=</span>x<span class="token punctuation">,</span> y<span class="token operator">=</span>y<span class="token punctuation">,</span> kind<span class="token operator">=</span><span class="token string">"hex"</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">"#4CB391"</span><span class="token punctuation">)</span><br><br>view<span class="token punctuation">(</span><span class="token string">'Hexbin'</span><span class="token punctuation">,</span> matplotlib_box<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+
+<div class="post-tags"><span><a href="/tags/nitro/" class="post-tag">#nitro</a> </span<span><a href="/tags/plugin/" class="post-tag">#plugin</a> </span
+</div>
+<div class="post-paging">
+  <span>&laquo; <a href="/posts/matplotlib-plugin/">Use Matplotlib in Nitro apps</a></span>
+  <span><a href="/posts/altair-plugin/">Use Altair and Vega plots in Nitro apps</a> &raquo;</span>
+</div>
+
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <!-- Current page: /posts/seaborn-plugin/ -->
+  </body>
+</html>
