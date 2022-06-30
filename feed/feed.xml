@@ -5,12 +5,93 @@
 	
 	<link href="https://wrong.technology/feed/feed.xml" rel="self"/>
 	<link href="https://wrong.technology/"/>
-	<updated>2022-06-22T00:00:00Z</updated>
+	<updated>2022-06-27T00:00:00Z</updated>
 	<id>https://wrong.technology/</id>
 	<author>
 		<name>Prithvi Prabhu</name>
 		<email>prithvi.prabhu@gmail.com</email>
 	</author>
+	
+	<entry>
+		<title>Nitro v0.11 shipped with Web Assembly support</title>
+		<link href="https://wrong.technology/posts/nitro-wasm/"/>
+		<updated>2022-06-27T00:00:00Z</updated>
+		<id>https://wrong.technology/posts/nitro-wasm/</id>
+		<content type="html">&lt;p&gt;Nitro 0.11 can run apps entirely in-browser.&lt;/p&gt;
+&lt;h2 id=&quot;what-does-this-mean&quot; tabindex=&quot;-1&quot;&gt;What does this mean? &lt;a class=&quot;direct-link&quot; href=&quot;https://wrong.technology/posts/nitro-wasm/#what-does-this-mean&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Ordinarily, your Nitro app runs on a server (or cloud) somewhere, and displays interactive user interfaces in your web browser:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;
+                    Network
+                       │            Python
+                       │           ┌──────────────────┐
+                       │           │  Nitro           │
+                       │           │ ┌──────────────┐ │
+                       │           │ │              │ │
+                       │           │ │     App      │ │
+                       │           │ │              │ │
+                       │           │ └─────▲─┬──────┘ │
+  Browser              │           │       │ │        │
+ ┌───────────┐         │           │       │ │        │
+ │           │         │           │ ┌─────┴─▼──────┐ │
+ │           │     I/O │           │ │              │ │
+ │    UI     └─────────┼───────────┼─►    Flask     │ │
+ │           ◄─────────┼───────────┼─┐              │ │
+ │           │         │           │ └──────────────┘ │
+ └───────────┘         │           │                  │
+                       │           └──────────────────┘
+                       │
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;With Nitro 0.11, you can put your Python code (and packages) on a static website somewhere (like &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages&lt;/a&gt; or &lt;a href=&quot;https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html&quot;&gt;S3 static websites&lt;/a&gt;), and have it load and execute entirely inside a web browser:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;                                        Network
+                                           │
+                   Python                  │
+                  ┌──────────────────┐     │
+                  │  Nitro           │     │
+                  │ ┌──────────────┐ │     │
+                  │ │              │ │     │
+                  │ │     App      │ │     │    Web Server
+                  │ │              │ │     │   ┌──────────────┐
+                  │ └─────▲─┬──────┘ │     │   │              │
+  Browser         │       │ │        ◄─────┼───┤ Static Files │
+ ┌───────────┐    │       │ │        │     │   │              │
+ │           │    │ ┌─────┴─┴──────┐ │     │   └──────────────┘
+ │           │    │ │              │ │     │
+ │    UI     └────┼─►    Nitride   │ │     │
+ │           ◄────┼─┐              │ │     │
+ │           │    │ └──────────────┘ │     │
+ └───────────┘    │                  │     │
+                  └──────────────────┘     │
+                                           │
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;how-is-this-possible&quot; tabindex=&quot;-1&quot;&gt;How is this possible? &lt;a class=&quot;direct-link&quot; href=&quot;https://wrong.technology/posts/nitro-wasm/#how-is-this-possible&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Nitro 0.11 introduces an application runtime called &lt;em&gt;Nitride&lt;/em&gt;, built atop &lt;a href=&quot;https://pyodide.org/&quot;&gt;Pyodide&lt;/a&gt;, a port of CPython to Web Assembly.&lt;/p&gt;
+&lt;p&gt;Nitride is a tiny (~5KB) layer that makes it possible to spawn a Python process in a &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API&quot;&gt;Web Worker&lt;/a&gt;, which then controls the UI. The UI then continues to operate normally, assuming it&#39;s communicating with a Nitro server over the network. In reality, the Nitro &amp;quot;server&amp;quot; is simply running locally on a separate operating system thread.&lt;/p&gt;
+&lt;h2 id=&quot;what-kind-of-apps-is-this-useful-for&quot; tabindex=&quot;-1&quot;&gt;What kind of apps is this useful for? &lt;a class=&quot;direct-link&quot; href=&quot;https://wrong.technology/posts/nitro-wasm/#what-kind-of-apps-is-this-useful-for&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Running apps this way is useful only if:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You don&#39;t want to host your Python app in the cloud (and deal with everything else related to hosting, including monitoring, uptime, etc.)&lt;/li&gt;
+&lt;li&gt;Your app doesn&#39;t need heavy compute, and you&#39;re fine with whatever processing power is available on your user&#39;s computer.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;what-does-it-look-like-in-practice&quot; tabindex=&quot;-1&quot;&gt;What does it look like in practice? &lt;a class=&quot;direct-link&quot; href=&quot;https://wrong.technology/posts/nitro-wasm/#what-does-it-look-like-in-practice&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Broadly, there are two ways to run your app:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Embed your code directly in HTML using a &lt;code&gt;&amp;lt;script type=&amp;quot;text/python&amp;quot;&amp;gt;&lt;/code&gt; tag.&lt;/li&gt;
+&lt;li&gt;(Recommended) Provide a configuration in a &lt;code&gt;&amp;lt;script type=&amp;quot;application/nitro&amp;quot;&amp;gt;&lt;/code&gt; tag.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Embedding Python code directly in HTML looks like this:&lt;/p&gt;
+&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;text/python&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token script&quot;&gt;&lt;span class=&quot;token language-javascript&quot;&gt;&lt;br /&gt;from h2o_nitro &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; AsyncView &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; View&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; box&lt;br /&gt;&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; def &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;view&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; View&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;br /&gt;    name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;What is your name?&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; value&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;Boaty McBoatface&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;br /&gt;    feel &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;box&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;f&lt;span class=&quot;token string&quot;&gt;&#39;How do you feel today, {name}?&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; value&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;intrigued&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;br /&gt;    &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;f&lt;span class=&quot;token string&quot;&gt;&#39;What a coincidence, {name}, I feel {feel}, too!&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;nitro &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;View&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;main&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; title&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;Hello Nitro!&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; caption&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;v1.0&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;br /&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Although the above technique works, it&#39;s more convenient to write programs in &lt;code&gt;.py&lt;/code&gt; modules and load them dynamically using a YAML configuration that describes your app:&lt;/p&gt;
+&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;application/nitro&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token script&quot;&gt;&lt;span class=&quot;token language-javascript&quot;&gt;&lt;br /&gt;  &lt;span class=&quot;token literal-property property&quot;&gt;language&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; python&lt;br /&gt;  &lt;span class=&quot;token literal-property property&quot;&gt;entrypoint&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; example_hello&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;py&lt;br /&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can also load external packages, wheel files, and modules dynamically, like this:&lt;/p&gt;
+&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;application/nitro&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token script&quot;&gt;&lt;span class=&quot;token language-javascript&quot;&gt;&lt;br /&gt;  &lt;span class=&quot;token literal-property property&quot;&gt;language&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; python&lt;br /&gt;  &lt;span class=&quot;token literal-property property&quot;&gt;packages&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; numpy&lt;br /&gt;  &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; pandas&lt;br /&gt;  &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; bokeh&lt;br /&gt;  &lt;span class=&quot;token literal-property property&quot;&gt;bundles&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; h2o&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;nitro&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;bokeh&lt;br /&gt;  &lt;span class=&quot;token literal-property property&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; example_bokeh_util&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;py&lt;br /&gt;  &lt;span class=&quot;token literal-property property&quot;&gt;entrypoint&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; example_bokeh&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;py&lt;br /&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For more comprehensive documentation, see &lt;a href=&quot;https://nitro.h2o.ai/wasm/&quot;&gt;https://nitro.h2o.ai/wasm/&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;summary&quot; tabindex=&quot;-1&quot;&gt;Summary &lt;a class=&quot;direct-link&quot; href=&quot;https://wrong.technology/posts/nitro-wasm/#summary&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The primary reason I added support for Web Assembly is to make our interactive docs run in-browser, and those docs are a &lt;em&gt;lot&lt;/em&gt; more interesting to play with than the static documentation :)&lt;/p&gt;
+&lt;p&gt;Also, if you&#39;re interested in things like PyScript, Nitro offers a &amp;quot;batteries-included&amp;quot; approach - a huge variety of interactive components that you can snap together quickly and build applications, instead of using Python as a substitute for Javascript and futzing around with the browser DOM. Anything you can do with PyScript, you can do with Nitro, too!&lt;/p&gt;
+&lt;p&gt;Happy hacking!&lt;/p&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>Pyodide for Nitro: Progress update 2</title>

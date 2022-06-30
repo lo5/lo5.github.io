@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nitro v0.11 shipped with Web Assembly support</title>
+    <meta name="description" content="Nitro 0.11 can run apps entirely in-browser.">
+    <meta name="generator" content="Eleventy v1.0.1">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-one-light.css">
+    <link rel="stylesheet" href="/css/prism-diff.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Wrong Technology">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Wrong Technology">
+  </head>
+  <body>
+    <header>
+      <h1 class="home"><a href="/">Wrong Technology</a></h1>
+      <ul class="nav">
+        <li class="nav-item"><a href="/">Home</a></li>
+        <li class="nav-item"><a href="/about/">About</a></li>
+        <li class="nav-item"><a href="/projects/">Projects</a></li>
+        <li class="nav-item"><a href="https://www.linkedin.com/in/prithviprabhu/" target="_blank">LinkedIn</a></li>
+        <li class="nav-item"><a href="https://github.com/lo5" target="_blank">Github</a></li>
+        <li class="nav-item"><a href="https://twitter.com/CrunchingData" target="_blank">Twitter</a></li>
+      </ul>
+    </header>
+
+    <main class="tmpl-post">
+      <h1>Nitro v0.11 shipped with Web Assembly support</h1>
+
+<time datetime="2022-06-27">27 Jun 2022</time>
+
+<p>Nitro 0.11 can run apps entirely in-browser.</p>
+<h2 id="what-does-this-mean" tabindex="-1">What does this mean? <a class="direct-link" href="#what-does-this-mean" aria-hidden="true">#</a></h2>
+<p>Ordinarily, your Nitro app runs on a server (or cloud) somewhere, and displays interactive user interfaces in your web browser:</p>
+<pre><code>
+                    Network
+                       │            Python
+                       │           ┌──────────────────┐
+                       │           │  Nitro           │
+                       │           │ ┌──────────────┐ │
+                       │           │ │              │ │
+                       │           │ │     App      │ │
+                       │           │ │              │ │
+                       │           │ └─────▲─┬──────┘ │
+  Browser              │           │       │ │        │
+ ┌───────────┐         │           │       │ │        │
+ │           │         │           │ ┌─────┴─▼──────┐ │
+ │           │     I/O │           │ │              │ │
+ │    UI     └─────────┼───────────┼─►    Flask     │ │
+ │           ◄─────────┼───────────┼─┐              │ │
+ │           │         │           │ └──────────────┘ │
+ └───────────┘         │           │                  │
+                       │           └──────────────────┘
+                       │
+</code></pre>
+<p>With Nitro 0.11, you can put your Python code (and packages) on a static website somewhere (like <a href="https://pages.github.com/">Github Pages</a> or <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html">S3 static websites</a>), and have it load and execute entirely inside a web browser:</p>
+<pre><code>                                        Network
+                                           │
+                   Python                  │
+                  ┌──────────────────┐     │
+                  │  Nitro           │     │
+                  │ ┌──────────────┐ │     │
+                  │ │              │ │     │
+                  │ │     App      │ │     │    Web Server
+                  │ │              │ │     │   ┌──────────────┐
+                  │ └─────▲─┬──────┘ │     │   │              │
+  Browser         │       │ │        ◄─────┼───┤ Static Files │
+ ┌───────────┐    │       │ │        │     │   │              │
+ │           │    │ ┌─────┴─┴──────┐ │     │   └──────────────┘
+ │           │    │ │              │ │     │
+ │    UI     └────┼─►    Nitride   │ │     │
+ │           ◄────┼─┐              │ │     │
+ │           │    │ └──────────────┘ │     │
+ └───────────┘    │                  │     │
+                  └──────────────────┘     │
+                                           │
+
+</code></pre>
+<h2 id="how-is-this-possible" tabindex="-1">How is this possible? <a class="direct-link" href="#how-is-this-possible" aria-hidden="true">#</a></h2>
+<p>Nitro 0.11 introduces an application runtime called <em>Nitride</em>, built atop <a href="https://pyodide.org">Pyodide</a>, a port of CPython to Web Assembly.</p>
+<p>Nitride is a tiny (~5KB) layer that makes it possible to spawn a Python process in a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API">Web Worker</a>, which then controls the UI. The UI then continues to operate normally, assuming it's communicating with a Nitro server over the network. In reality, the Nitro &quot;server&quot; is simply running locally on a separate operating system thread.</p>
+<h2 id="what-kind-of-apps-is-this-useful-for" tabindex="-1">What kind of apps is this useful for? <a class="direct-link" href="#what-kind-of-apps-is-this-useful-for" aria-hidden="true">#</a></h2>
+<p>Running apps this way is useful only if:</p>
+<ul>
+<li>You don't want to host your Python app in the cloud (and deal with everything else related to hosting, including monitoring, uptime, etc.)</li>
+<li>Your app doesn't need heavy compute, and you're fine with whatever processing power is available on your user's computer.</li>
+</ul>
+<h2 id="what-does-it-look-like-in-practice" tabindex="-1">What does it look like in practice? <a class="direct-link" href="#what-does-it-look-like-in-practice" aria-hidden="true">#</a></h2>
+<p>Broadly, there are two ways to run your app:</p>
+<ol>
+<li>Embed your code directly in HTML using a <code>&lt;script type=&quot;text/python&quot;&gt;</code> tag.</li>
+<li>(Recommended) Provide a configuration in a <code>&lt;script type=&quot;application/nitro&quot;&gt;</code> tag.</li>
+</ol>
+<p>Embedding Python code directly in HTML looks like this:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/python<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>from h2o_nitro <span class="token keyword">import</span> AsyncView <span class="token keyword">as</span> View<span class="token punctuation">,</span> box<br><br><span class="token keyword">async</span> def <span class="token function">main</span><span class="token punctuation">(</span>view<span class="token operator">:</span> View<span class="token punctuation">)</span><span class="token operator">:</span><br>    name <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">view</span><span class="token punctuation">(</span><span class="token function">box</span><span class="token punctuation">(</span><span class="token string">'What is your name?'</span><span class="token punctuation">,</span> value<span class="token operator">=</span><span class="token string">'Boaty McBoatface'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br>    feel <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">view</span><span class="token punctuation">(</span><span class="token function">box</span><span class="token punctuation">(</span>f<span class="token string">'How do you feel today, {name}?'</span><span class="token punctuation">,</span> value<span class="token operator">=</span><span class="token string">'intrigued'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br>    <span class="token keyword">await</span> <span class="token function">view</span><span class="token punctuation">(</span>f<span class="token string">'What a coincidence, {name}, I feel {feel}, too!'</span><span class="token punctuation">)</span><br><br>nitro <span class="token operator">=</span> <span class="token function">View</span><span class="token punctuation">(</span>main<span class="token punctuation">,</span> title<span class="token operator">=</span><span class="token string">'Hello Nitro!'</span><span class="token punctuation">,</span> caption<span class="token operator">=</span><span class="token string">'v1.0'</span><span class="token punctuation">)</span><br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+<p>Although the above technique works, it's more convenient to write programs in <code>.py</code> modules and load them dynamically using a YAML configuration that describes your app:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>application/nitro<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  <span class="token literal-property property">language</span><span class="token operator">:</span> python<br>  <span class="token literal-property property">entrypoint</span><span class="token operator">:</span> example_hello<span class="token punctuation">.</span>py<br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+<p>You can also load external packages, wheel files, and modules dynamically, like this:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>application/nitro<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"><br>  <span class="token literal-property property">language</span><span class="token operator">:</span> python<br>  <span class="token literal-property property">packages</span><span class="token operator">:</span><br>  <span class="token operator">-</span> numpy<br>  <span class="token operator">-</span> pandas<br>  <span class="token operator">-</span> bokeh<br>  <span class="token literal-property property">bundles</span><span class="token operator">:</span><br>  <span class="token operator">-</span> h2o<span class="token operator">-</span>nitro<span class="token operator">-</span>bokeh<br>  <span class="token literal-property property">files</span><span class="token operator">:</span><br>  <span class="token operator">-</span> example_bokeh_util<span class="token punctuation">.</span>py<br>  <span class="token literal-property property">entrypoint</span><span class="token operator">:</span> example_bokeh<span class="token punctuation">.</span>py<br></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre>
+<p>For more comprehensive documentation, see <a href="https://nitro.h2o.ai/wasm/">https://nitro.h2o.ai/wasm/</a>.</p>
+<h2 id="summary" tabindex="-1">Summary <a class="direct-link" href="#summary" aria-hidden="true">#</a></h2>
+<p>The primary reason I added support for Web Assembly is to make our interactive docs run in-browser, and those docs are a <em>lot</em> more interesting to play with than the static documentation :)</p>
+<p>Also, if you're interested in things like PyScript, Nitro offers a &quot;batteries-included&quot; approach - a huge variety of interactive components that you can snap together quickly and build applications, instead of using Python as a substitute for Javascript and futzing around with the browser DOM. Anything you can do with PyScript, you can do with Nitro, too!</p>
+<p>Happy hacking!</p>
+
+
+<div class="post-tags"><span><a href="/tags/nitro/" class="post-tag">#nitro</a> </span<span><a href="/tags/release/" class="post-tag">#release</a> </span
+</div>
+<div class="post-paging">
+  <span>&laquo; <a href="/posts/pyodide-update-2/">Pyodide for Nitro: Progress update 2</a></span>
+  <span></span>
+</div>
+
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <!-- Current page: /posts/nitro-wasm/ -->
+  </body>
+</html>

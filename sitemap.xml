@@ -130,4 +130,9 @@
     <loc>https://wrong.technology/tags/pyodide/</loc>
     <lastmod>2022-06-25</lastmod>
   </url>
+  
+  <url>
+    <loc>https://wrong.technology/posts/nitro-wasm/</loc>
+    <lastmod>2022-06-27</lastmod>
+  </url>
 </urlset>
