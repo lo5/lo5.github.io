@@ -8,6 +8,7 @@
   --navy: #8b6fcb;
   --blue: #3273dc;
   --white: #fff;
+  --darker: #555;
 }
 
 * {
@@ -94,13 +95,34 @@ header h1 a:visited {
 }
 
 table {
+  border-collapse: collapse;
   margin: 1em 0;
+  font-size: 95%;
 }
 
 table td,
 table th {
-  padding-right: 1em;
+  padding: 0.3em 1em 0.3em 0.5em;
 }
+
+table thead tr {
+  background-color: var(--darker);
+  color: #ffffff;
+  text-align: left;
+}
+
+table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+tbody tr:last-of-type {
+  border-bottom: 2px solid var(--darker);
+}
+
 
 pre,
 code {
@@ -126,10 +148,6 @@ pre {
   padding: 1em;
   margin: .5em 0;
   background-color: #f6f6f6;
-}
-
-code {
-  word-break: break-all;
 }
 
 p code,

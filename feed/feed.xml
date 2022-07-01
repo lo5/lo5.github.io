@@ -5,12 +5,134 @@
 	
 	<link href="https://wrong.technology/feed/feed.xml" rel="self"/>
 	<link href="https://wrong.technology/"/>
-	<updated>2022-06-27T00:00:00Z</updated>
+	<updated>2022-06-30T00:00:00Z</updated>
 	<id>https://wrong.technology/</id>
 	<author>
 		<name>Prithvi Prabhu</name>
 		<email>prithvi.prabhu@gmail.com</email>
 	</author>
+	
+	<entry>
+		<title>Nitro in Web Assembly - Performance</title>
+		<link href="https://wrong.technology/posts/nitro-wasm-perf/"/>
+		<updated>2022-06-30T00:00:00Z</updated>
+		<id>https://wrong.technology/posts/nitro-wasm-perf/</id>
+		<content type="html">&lt;p&gt;Here&#39;s some rough insight into what happens when you run a Nitro app entirely in-browser.&lt;/p&gt;
+&lt;h2 id=&quot;without-wasm&quot; tabindex=&quot;-1&quot;&gt;Without Wasm &lt;a class=&quot;direct-link&quot; href=&quot;https://wrong.technology/posts/nitro-wasm-perf/#without-wasm&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Nitro requires 717kB of dependencies in the browser, regardless of whether you&#39;re using Wasm or not (717kB gzip / 3.3MB raw):&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;File&lt;/th&gt;
+&lt;th&gt;Size&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;styles.css&lt;/td&gt;
+&lt;td&gt;7.5kB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;main.css&lt;/td&gt;
+&lt;td&gt;1.5KB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;main.js&lt;/td&gt;
+&lt;td&gt;3.2MB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;loading.gif&lt;/td&gt;
+&lt;td&gt;18.1kB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[font].woff2&lt;/td&gt;
+&lt;td&gt;33.5kB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[font].css&lt;/td&gt;
+&lt;td&gt;1.3kB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;favicon.ico&lt;/td&gt;
+&lt;td&gt;15.4kB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Total&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;3.3MB&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Once the above dependencies are loaded, application startup is near-instantaneous.&lt;/p&gt;
+&lt;h2 id=&quot;adding-wasm&quot; tabindex=&quot;-1&quot;&gt;Adding Wasm &lt;a class=&quot;direct-link&quot; href=&quot;https://wrong.technology/posts/nitro-wasm-perf/#adding-wasm&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The same app on Wasm requires an additional 8.15MB (8.15MB gzip / 18.19MB raw):&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;File&lt;/th&gt;
+&lt;th&gt;Size (gzip / raw)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;nitride.js&lt;/td&gt;
+&lt;td&gt;1.8kB / 5.4kB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;h2o_nitro-[...].whl&lt;/td&gt;
+&lt;td&gt;12.8kB / 12.8kB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pyodide.js&lt;/td&gt;
+&lt;td&gt;14.8kB / 46.0kB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;packages.json&lt;/td&gt;
+&lt;td&gt;5.5kB / 28.0kB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pyodide_py.tar&lt;/td&gt;
+&lt;td&gt;103kB / 103kB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pyodide.asm.js&lt;/td&gt;
+&lt;td&gt;322kB / 2MB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pyodide.asm.data&lt;/td&gt;
+&lt;td&gt;3.4MB / 5.4MB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pyodide.asm.wasm&lt;/td&gt;
+&lt;td&gt;3.2MB / 9.5MB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;distutils.tar&lt;/td&gt;
+&lt;td&gt;984kB / 984kB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;micropip-[...].whl&lt;/td&gt;
+&lt;td&gt;16.8kB / 16.8kB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pyparsing-[...].whl&lt;/td&gt;
+&lt;td&gt;98.8kB / 98.8kB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;packaging-[...].whl&lt;/td&gt;
+&lt;td&gt;41.4kB / 41.4kB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Total&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;8.15MB / 18.19MB&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Of these, Nitro&#39;s dependencies are negligible (~14kB).&lt;/p&gt;
+&lt;p&gt;Downloading and initializing the above dependencies adds 3-5 seconds of overhead. YMMV depending on network, CPU and browser.&lt;/p&gt;
+&lt;p&gt;Overall, not bad, but the overhead is noticeable.&lt;/p&gt;
+&lt;p&gt;That said, notice that Nitro runs unmodified in browsers. The same ~13kB &lt;code&gt;h2o-nitro&lt;/code&gt; wheel from PyPI runs as is, with an additional 1.8kB for &lt;code&gt;nitride.js&lt;/code&gt;, the application runtime atop Pyodide.&lt;/p&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>Nitro v0.11 shipped with Web Assembly support</title>

@@ -117,12 +117,12 @@
   </url>
   
   <url>
-    <loc>https://wrong.technology/tags/nitrogen/</loc>
+    <loc>https://wrong.technology/tags/release/</loc>
     <lastmod>2022-06-25</lastmod>
   </url>
   
   <url>
-    <loc>https://wrong.technology/tags/release/</loc>
+    <loc>https://wrong.technology/tags/nitrogen/</loc>
     <lastmod>2022-06-25</lastmod>
   </url>
   
@@ -134,5 +134,10 @@
   <url>
     <loc>https://wrong.technology/posts/nitro-wasm/</loc>
     <lastmod>2022-06-27</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wrong.technology/posts/nitro-wasm-perf/</loc>
+    <lastmod>2022-06-30</lastmod>
   </url>
 </urlset>

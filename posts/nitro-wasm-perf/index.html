@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nitro in Web Assembly - Performance</title>
+    <meta name="description" content="Here&#39;s some rough insight into what happens when you run a Nitro app entirely in-browser.">
+    <meta name="generator" content="Eleventy v1.0.1">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-one-light.css">
+    <link rel="stylesheet" href="/css/prism-diff.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Wrong Technology">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Wrong Technology">
+  </head>
+  <body>
+    <header>
+      <h1 class="home"><a href="/">Wrong Technology</a></h1>
+      <ul class="nav">
+        <li class="nav-item"><a href="/">Home</a></li>
+        <li class="nav-item"><a href="/about/">About</a></li>
+        <li class="nav-item"><a href="/projects/">Projects</a></li>
+        <li class="nav-item"><a href="https://www.linkedin.com/in/prithviprabhu/" target="_blank">LinkedIn</a></li>
+        <li class="nav-item"><a href="https://github.com/lo5" target="_blank">Github</a></li>
+        <li class="nav-item"><a href="https://twitter.com/CrunchingData" target="_blank">Twitter</a></li>
+      </ul>
+    </header>
+
+    <main class="tmpl-post">
+      <h1>Nitro in Web Assembly - Performance</h1>
+
+<time datetime="2022-06-30">30 Jun 2022</time>
+
+<p>Here's some rough insight into what happens when you run a Nitro app entirely in-browser.</p>
+<h2 id="without-wasm" tabindex="-1">Without Wasm <a class="direct-link" href="#without-wasm" aria-hidden="true">#</a></h2>
+<p>Nitro requires 717kB of dependencies in the browser, regardless of whether you're using Wasm or not (717kB gzip / 3.3MB raw):</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>styles.css</td>
+<td>7.5kB</td>
+</tr>
+<tr>
+<td>main.css</td>
+<td>1.5KB</td>
+</tr>
+<tr>
+<td>main.js</td>
+<td>3.2MB</td>
+</tr>
+<tr>
+<td>loading.gif</td>
+<td>18.1kB</td>
+</tr>
+<tr>
+<td>[font].woff2</td>
+<td>33.5kB</td>
+</tr>
+<tr>
+<td>[font].css</td>
+<td>1.3kB</td>
+</tr>
+<tr>
+<td>favicon.ico</td>
+<td>15.4kB</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>3.3MB</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Once the above dependencies are loaded, application startup is near-instantaneous.</p>
+<h2 id="adding-wasm" tabindex="-1">Adding Wasm <a class="direct-link" href="#adding-wasm" aria-hidden="true">#</a></h2>
+<p>The same app on Wasm requires an additional 8.15MB (8.15MB gzip / 18.19MB raw):</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Size (gzip / raw)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nitride.js</td>
+<td>1.8kB / 5.4kB</td>
+</tr>
+<tr>
+<td>h2o_nitro-[...].whl</td>
+<td>12.8kB / 12.8kB</td>
+</tr>
+<tr>
+<td>pyodide.js</td>
+<td>14.8kB / 46.0kB</td>
+</tr>
+<tr>
+<td>packages.json</td>
+<td>5.5kB / 28.0kB</td>
+</tr>
+<tr>
+<td>pyodide_py.tar</td>
+<td>103kB / 103kB</td>
+</tr>
+<tr>
+<td>pyodide.asm.js</td>
+<td>322kB / 2MB</td>
+</tr>
+<tr>
+<td>pyodide.asm.data</td>
+<td>3.4MB / 5.4MB</td>
+</tr>
+<tr>
+<td>pyodide.asm.wasm</td>
+<td>3.2MB / 9.5MB</td>
+</tr>
+<tr>
+<td>distutils.tar</td>
+<td>984kB / 984kB</td>
+</tr>
+<tr>
+<td>micropip-[...].whl</td>
+<td>16.8kB / 16.8kB</td>
+</tr>
+<tr>
+<td>pyparsing-[...].whl</td>
+<td>98.8kB / 98.8kB</td>
+</tr>
+<tr>
+<td>packaging-[...].whl</td>
+<td>41.4kB / 41.4kB</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>8.15MB / 18.19MB</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Of these, Nitro's dependencies are negligible (~14kB).</p>
+<p>Downloading and initializing the above dependencies adds 3-5 seconds of overhead. YMMV depending on network, CPU and browser.</p>
+<p>Overall, not bad, but the overhead is noticeable.</p>
+<p>That said, notice that Nitro runs unmodified in browsers. The same ~13kB <code>h2o-nitro</code> wheel from PyPI runs as is, with an additional 1.8kB for <code>nitride.js</code>, the application runtime atop Pyodide.</p>
+
+
+<div class="post-tags"><span><a href="/tags/nitro/" class="post-tag">#nitro</a> </span
+</div>
+<div class="post-paging">
+  <span>&laquo; <a href="/posts/nitro-wasm/">Nitro v0.11 shipped with Web Assembly support</a></span>
+  <span></span>
+</div>
+
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <!-- Current page: /posts/nitro-wasm-perf/ -->
+  </body>
+</html>
