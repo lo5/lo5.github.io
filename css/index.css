@@ -40,11 +40,13 @@ p:last-child {
 p,
 .tmpl-post li,
 img,
+video,
 .post-paging {
   max-width: 37.5em;
 }
 
-img {
+img,
+video {
   border: 1px solid var(--gray);
 }
 
