@@ -92,46 +92,6 @@
   </url>
   
   <url>
-    <loc>https://wrong.technology/</loc>
-    <lastmod>2022-06-25</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://wrong.technology/page-list/</loc>
-    <lastmod>2022-06-25</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://wrong.technology/tags/</loc>
-    <lastmod>2022-06-25</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://wrong.technology/tags/nitro/</loc>
-    <lastmod>2022-06-25</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://wrong.technology/tags/plugin/</loc>
-    <lastmod>2022-06-25</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://wrong.technology/tags/release/</loc>
-    <lastmod>2022-06-25</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://wrong.technology/tags/nitrogen/</loc>
-    <lastmod>2022-06-25</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://wrong.technology/tags/pyodide/</loc>
-    <lastmod>2022-06-25</lastmod>
-  </url>
-  
-  <url>
     <loc>https://wrong.technology/posts/nitro-wasm/</loc>
     <lastmod>2022-06-27</lastmod>
   </url>
@@ -139,5 +99,50 @@
   <url>
     <loc>https://wrong.technology/posts/nitro-wasm-perf/</loc>
     <lastmod>2022-06-30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wrong.technology/posts/nitro-live-handling/</loc>
+    <lastmod>2022-07-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wrong.technology/</loc>
+    <lastmod>2022-07-06</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wrong.technology/page-list/</loc>
+    <lastmod>2022-07-06</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wrong.technology/tags/</loc>
+    <lastmod>2022-07-06</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wrong.technology/tags/nitro/</loc>
+    <lastmod>2022-07-06</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wrong.technology/tags/plugin/</loc>
+    <lastmod>2022-07-06</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wrong.technology/tags/nitrogen/</loc>
+    <lastmod>2022-07-06</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wrong.technology/tags/release/</loc>
+    <lastmod>2022-07-06</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://wrong.technology/tags/pyodide/</loc>
+    <lastmod>2022-07-06</lastmod>
   </url>
 </urlset>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nitro v0.12 - live change handling</title>
+    <meta name="description" content="Until now, Nitro apps could only respond to button or menu clicks. v0.12 changes all that.">
+    <meta name="generator" content="Eleventy v1.0.1">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-one-light.css">
+    <link rel="stylesheet" href="/css/prism-diff.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Wrong Technology">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Wrong Technology">
+  </head>
+  <body>
+    <header>
+      <h1 class="home"><a href="/">Wrong Technology</a></h1>
+      <ul class="nav">
+        <li class="nav-item"><a href="/">Home</a></li>
+        <li class="nav-item"><a href="/about/">About</a></li>
+        <li class="nav-item"><a href="/projects/">Projects</a></li>
+        <li class="nav-item"><a href="https://www.linkedin.com/in/prithviprabhu/" target="_blank">LinkedIn</a></li>
+        <li class="nav-item"><a href="https://github.com/lo5" target="_blank">Github</a></li>
+        <li class="nav-item"><a href="https://twitter.com/CrunchingData" target="_blank">Twitter</a></li>
+      </ul>
+    </header>
+
+    <main class="tmpl-post">
+      <h1>Nitro v0.12 - live change handling</h1>
+
+<time datetime="2022-07-05">05 Jul 2022</time>
+
+<p>Until now, Nitro apps could only respond to button or menu clicks. v0.12 changes all that.</p>
+<p>To know about changes to a component's input as soon as it happens, set <code>live=True</code> on that component. You can set this on more than one component.</p>
+<h2 id="examples" tabindex="-1">Examples <a class="direct-link" href="#examples" aria-hidden="true">#</a></h2>
+<p>Here's a spinbox with <code>live=True</code>.</p>
+<pre class="language-py"><code class="language-py">speed <span class="token operator">=</span> <span class="token number">42</span>  <span class="token comment"># Starting value</span><br><span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span><br>    speed <span class="token operator">=</span> view<span class="token punctuation">(</span><br>        box<span class="token punctuation">(</span><span class="token string">'Speed (km/h)'</span><span class="token punctuation">,</span> value<span class="token operator">=</span>speed<span class="token punctuation">,</span> live<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>        <span class="token string-interpolation"><span class="token string">f'Your speed is </span><span class="token interpolation"><span class="token punctuation">{</span>speed<span class="token punctuation">}</span></span><span class="token string"> km/h'</span></span><span class="token punctuation">,</span><br>    <span class="token punctuation">)</span></code></pre>
+<p><video src='/img/live-handling-spinner.mp4' autoplay loop muted></video></p>
+<p>Another example, using a checkbox:</p>
+<pre class="language-py"><code class="language-py">keep_signed_in <span class="token operator">=</span> <span class="token boolean">True</span><br><span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span><br>    keep_signed_in <span class="token operator">=</span> view<span class="token punctuation">(</span><br>        box<span class="token punctuation">(</span><span class="token string">'Remember me'</span><span class="token punctuation">,</span> value<span class="token operator">=</span>keep_signed_in<span class="token punctuation">,</span> live<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>        <span class="token string">"Keep me signed in."</span> <span class="token keyword">if</span> keep_signed_in <span class="token keyword">else</span> <span class="token string">"Don't keep me signed in."</span><span class="token punctuation">,</span><br>    <span class="token punctuation">)</span></code></pre>
+<p><video src='/img/live-handling-checkbox.mp4' autoplay loop muted></video></p>
+<p>Same technique, with a dropdown menu:</p>
+<pre class="language-py"><code class="language-py">choice <span class="token operator">=</span> <span class="token string">'yellow'</span><br><span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span><br>    choice <span class="token operator">=</span> view<span class="token punctuation">(</span><br>        box<span class="token punctuation">(</span><span class="token string">'Choose a color'</span><span class="token punctuation">,</span> mode<span class="token operator">=</span><span class="token string">'menu'</span><span class="token punctuation">,</span> value<span class="token operator">=</span>choice<span class="token punctuation">,</span> live<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span><br>            options<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'green'</span><span class="token punctuation">,</span> <span class="token string">'yellow'</span><span class="token punctuation">,</span> <span class="token string">'orange'</span><span class="token punctuation">,</span> <span class="token string">'red'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><br>        <span class="token punctuation">)</span><span class="token punctuation">,</span><br>        <span class="token string-interpolation"><span class="token string">f'You chose </span><span class="token interpolation"><span class="token punctuation">{</span>choice<span class="token punctuation">}</span></span><span class="token string">.'</span></span><br>    <span class="token punctuation">)</span></code></pre>
+<p><video src='/img/live-handling-dropdown.mp4' autoplay loop muted></video></p>
+<h2 id="no-callbacks" tabindex="-1">No callbacks <a class="direct-link" href="#no-callbacks" aria-hidden="true">#</a></h2>
+<p>If you're familiar with Nitro's API, you'll notice that the above examples retain the simplicity of Nitro's callback-free API. To listen to changes and respond, simply place your code inside a <code>while</code> loop. When you're done listening, <code>break</code> out of the <code>while</code> loop (not shown for brevity).</p>
+<p>This new capability, combined with <a href="https://nitro.h2o.ai/editing/">partial updates</a> (&quot;edits&quot;) makes it possible to author Nitro apps that are equivalent in power and performance to <a href="https://github.com/h2oai/wave">H2O Wave</a> apps.</p>
+<h2 id="next-steps" tabindex="-1">Next steps <a class="direct-link" href="#next-steps" aria-hidden="true">#</a></h2>
+<p>Over the next few weeks, you'll see a lot more examples of Nitro in action, but there's a pile of work to be done first to beef up the breadth of available widgets. Nitro is actively being used to develop some exciting new capabilities in <a href="https://h2o.ai/platform/ai-cloud/make/h2o-driverless-ai/">Driverless AI</a>, so getting those features out takes priority over everything else for now.</p>
+<p>Also, I spent some time organizing active/upcoming issues in our repo. There's now a <a href="https://github.com/h2oai/nitro/issues/15">backlog</a> and <a href="https://github.com/h2oai/nitro/milestones">milestones</a>.</p>
+<p>The next release, 0.13, will ship with incremental improvements to improving how wizards look and behave, including some new capabilities to help user onboarding and <a href="https://www.cs.umd.edu/users/ben/goldenrules.html">reduce short-term memory load</a>.</p>
+<p><a href="https://nitro.h2o.ai/change-log/#v0120">View the full change log</a>.</p>
+<p>Happy hacking!</p>
+
+
+<div class="post-tags"><span><a href="/tags/nitro/" class="post-tag">#nitro</a> </span
+</div>
+<div class="post-paging">
+  <span>&laquo; <a href="/posts/nitro-wasm-perf/">Nitro in Web Assembly - Performance</a></span>
+  <span></span>
+</div>
+
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <!-- Current page: /posts/nitro-live-handling/ -->
+  </body>
+</html>
