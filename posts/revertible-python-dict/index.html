@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Revertible Python dictionary</title>
+    <meta name="description" content="Here&#39;s a Python dictionary-like class that supports undo/redo and transactions:">
+    <meta name="generator" content="Eleventy v1.0.1">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-one-light.css">
+    <link rel="stylesheet" href="/css/prism-diff.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Wrong Technology">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Wrong Technology">
+  </head>
+  <body>
+    <header>
+      <h1 class="home"><a href="/">Wrong Technology</a></h1>
+      <ul class="nav">
+        <li class="nav-item"><a href="/">Home</a></li>
+        <li class="nav-item"><a href="/about/">About</a></li>
+        <li class="nav-item"><a href="/projects/">Projects</a></li>
+        <li class="nav-item"><a href="https://www.linkedin.com/in/prithviprabhu/" target="_blank">LinkedIn</a></li>
+        <li class="nav-item"><a href="https://github.com/lo5" target="_blank">Github</a></li>
+        <li class="nav-item"><a href="https://twitter.com/CrunchingData" target="_blank">Twitter</a></li>
+      </ul>
+    </header>
+
+    <main class="tmpl-post">
+      <h1>A Revertible Python dictionary</h1>
+
+<time datetime="2022-07-07">07 Jul 2022</time>
+
+<p>Here's a Python dictionary-like class that supports undo/redo and transactions:</p>
+<p><a href="https://gist.github.com/lo5/2bf02c6455617aa65b244fa11cd1926e">View source</a>.</p>
+<p>I wrote it while trying to solve back-button support in Nitro apps, but ended up taking a different, simpler approach, which I'll describe in a later blog post.</p>
+<p>The dict lets you do this:</p>
+<pre class="language-py"><code class="language-py">    d <span class="token operator">=</span> RevertibleDict<span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token keyword">assert</span> <span class="token string">'x'</span> <span class="token keyword">not</span> <span class="token keyword">in</span> d<br>    d<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">42</span><br>    <span class="token keyword">assert</span> d<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">42</span><br>    d<span class="token punctuation">.</span>undo<span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token keyword">assert</span> <span class="token string">'x'</span> <span class="token keyword">not</span> <span class="token keyword">in</span> d<br>    d<span class="token punctuation">.</span>redo<span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token keyword">assert</span> d<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">42</span></code></pre>
+<p>This works for nested keys, too, e.g. <code>d['x', 'y'] = 42</code>, since Python treats <code>'x', 'y'</code> as the tuple <code>('x', 'y')</code>.</p>
+<p>Setting individual entries is not useful in itself. Typically, you'd want to change multiple entries and revert a whole batch of changes.</p>
+<p>Enter transactions:</p>
+<pre class="language-py"><code class="language-py">    d <span class="token operator">=</span> RevertibleDict<span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token keyword">with</span> d<span class="token punctuation">:</span><br>        d<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">42</span><br>        d<span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">43</span><br>        d<span class="token punctuation">[</span><span class="token string">'z'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">44</span><br>        <span class="token keyword">assert</span> d<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">42</span><br>        <span class="token keyword">assert</span> d<span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">43</span><br>        <span class="token keyword">assert</span> d<span class="token punctuation">[</span><span class="token string">'z'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">44</span><br><br>    <span class="token keyword">assert</span> d<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">42</span><br>    <span class="token keyword">assert</span> d<span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">43</span><br>    <span class="token keyword">assert</span> d<span class="token punctuation">[</span><span class="token string">'z'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">44</span><br>    d<span class="token punctuation">.</span>undo<span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token keyword">assert</span> <span class="token string">'x'</span> <span class="token keyword">not</span> <span class="token keyword">in</span> d<br>    <span class="token keyword">assert</span> <span class="token string">'y'</span> <span class="token keyword">not</span> <span class="token keyword">in</span> d<br>    <span class="token keyword">assert</span> <span class="token string">'z'</span> <span class="token keyword">not</span> <span class="token keyword">in</span> d<br>    d<span class="token punctuation">.</span>redo<span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token keyword">assert</span> d<span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">42</span><br>    <span class="token keyword">assert</span> d<span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">43</span><br>    <span class="token keyword">assert</span> d<span class="token punctuation">[</span><span class="token string">'z'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">44</span></code></pre>
+<p>The transaction is committed when exiting the <code>with</code> context. If an exception occurs, the changes are rolled back.</p>
+<p>The entire implementation is ~125 lines of code, and includes a generic undo/redo history manager, if you want to author different kinds of revertible data structures.</p>
+<p>Happy hacking!</p>
+
+
+<div class="post-tags"><span><a href="/tags/code/" class="post-tag">#code</a> </span
+</div>
+<div class="post-paging">
+  <span>&laquo; <a href="/posts/nitro-live-handling/">Nitro v0.12 - live change handling</a></span>
+  <span><a href="/posts/back-button-support/">Back button support</a> &raquo;</span>
+</div>
+
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <!-- Current page: /posts/revertible-python-dict/ -->
+  </body>
+</html>

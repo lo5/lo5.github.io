@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Back button support</title>
+    <meta name="description" content="We&#39;re trying to see if it&#39;s possible to provide some kind of automatic back-button support for Nitro apps without losing state.">
+    <meta name="generator" content="Eleventy v1.0.1">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/prism-one-light.css">
+    <link rel="stylesheet" href="/css/prism-diff.css">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Wrong Technology">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Wrong Technology">
+  </head>
+  <body>
+    <header>
+      <h1 class="home"><a href="/">Wrong Technology</a></h1>
+      <ul class="nav">
+        <li class="nav-item"><a href="/">Home</a></li>
+        <li class="nav-item"><a href="/about/">About</a></li>
+        <li class="nav-item"><a href="/projects/">Projects</a></li>
+        <li class="nav-item"><a href="https://www.linkedin.com/in/prithviprabhu/" target="_blank">LinkedIn</a></li>
+        <li class="nav-item"><a href="https://github.com/lo5" target="_blank">Github</a></li>
+        <li class="nav-item"><a href="https://twitter.com/CrunchingData" target="_blank">Twitter</a></li>
+      </ul>
+    </header>
+
+    <main class="tmpl-post">
+      <h1>Back button support</h1>
+
+<time datetime="2022-07-08">08 Jul 2022</time>
+
+<p>We're trying to see if it's possible to provide some kind of automatic back-button support for Nitro apps without losing state.</p>
+<h2 id="goals" tabindex="-1">Goals <a class="direct-link" href="#goals" aria-hidden="true">#</a></h2>
+<p>The primary requirements are:</p>
+<ul>
+<li>Preserve Nitro's programming model.</li>
+<li>Support history / back-button traversal.</li>
+<li>Don't lose state when traversing back and forth.</li>
+</ul>
+<p>For reference, the sixth rule in <a href="https://www.cs.umd.edu/users/ben/goldenrules.html">Ben Shneiderman's The Eight Golden Rules of Interface Design</a> says:</p>
+<blockquote>
+<p><strong>Permit easy reversal of actions.</strong><br>
+As much as possible, actions should be reversible. This feature relieves anxiety, since users know that errors can be undone, and encourages exploration of unfamiliar options. The units of reversibility may be a single action, a data-entry task, or a complete group of actions, such as entry of a name-address block.</p>
+</blockquote>
+<p>This is complicated, to say the least, but necessary. Naturally, everyone is asking for it.</p>
+<h2 id="solution" tabindex="-1">Solution <a class="direct-link" href="#solution" aria-hidden="true">#</a></h2>
+<p>Here's one attempt to address it. The solution ends up being a tad more verbose compared to vanilla Nitro apps.</p>
+<p>There are 3 refactorings you'll need to do to get this working.</p>
+<ol>
+<li>Place each <code>view()</code> in a separate function.</li>
+<li>To show the next view, call <code>view.jump(do_something)</code> instead of <code>do_something(view)</code>. <code>view.jump()</code> will be released in v0.13.</li>
+<li>Pass these functions as <code>routes</code> when creating the root <code>View()</code>.</li>
+</ol>
+<h2 id="demo" tabindex="-1">Demo <a class="direct-link" href="#demo" aria-hidden="true">#</a></h2>
+<p>Here's a basic 5-page UI that demonstrates this:</p>
+<p><video src='/img/back-button-support.mp4' autoplay loop muted></video></p>
+<pre class="language-py"><code class="language-py"><span class="token keyword">from</span> h2o_nitro <span class="token keyword">import</span> View<span class="token punctuation">,</span> box<span class="token punctuation">,</span> option<br><span class="token keyword">from</span> h2o_nitro_web <span class="token keyword">import</span> web_directory<br><br><br><span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">:</span><br>    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> first_name<span class="token punctuation">,</span> last_name<span class="token punctuation">)</span><span class="token punctuation">:</span><br>        self<span class="token punctuation">.</span>first_name <span class="token operator">=</span> first_name<br>        self<span class="token punctuation">.</span>last_name <span class="token operator">=</span> last_name<br><br><br><span class="token keyword">class</span> <span class="token class-name">State</span><span class="token punctuation">:</span><br>    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span><br>        self<span class="token punctuation">.</span>person <span class="token operator">=</span> Person<span class="token punctuation">(</span><span class="token string">'Boaty'</span><span class="token punctuation">,</span> <span class="token string">'McBoatface'</span><span class="token punctuation">)</span><br>        self<span class="token punctuation">.</span>father <span class="token operator">=</span> Person<span class="token punctuation">(</span><span class="token string">'Papa'</span><span class="token punctuation">,</span> <span class="token string">'McBoatface'</span><span class="token punctuation">)</span><br>        self<span class="token punctuation">.</span>mother <span class="token operator">=</span> Person<span class="token punctuation">(</span><span class="token string">'Mama'</span><span class="token punctuation">,</span> <span class="token string">'McBoatface'</span><span class="token punctuation">)</span><br><br><br><span class="token keyword">def</span> <span class="token function">ask_name</span><span class="token punctuation">(</span>view<span class="token punctuation">:</span> View<span class="token punctuation">)</span><span class="token punctuation">:</span><br>    person<span class="token punctuation">:</span> Person <span class="token operator">=</span> view<span class="token punctuation">.</span>context<span class="token punctuation">[</span><span class="token string">'state'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>person<br>    person<span class="token punctuation">.</span>first_name<span class="token punctuation">,</span> person<span class="token punctuation">.</span>last_name <span class="token operator">=</span> view<span class="token punctuation">(</span><br>        <span class="token string-interpolation"><span class="token string">f"# Step 1"</span></span><span class="token punctuation">,</span><br>        box<span class="token punctuation">(</span><span class="token string">'Your first name?'</span><span class="token punctuation">,</span> value<span class="token operator">=</span>person<span class="token punctuation">.</span>first_name<span class="token punctuation">)</span><span class="token punctuation">,</span><br>        box<span class="token punctuation">(</span><span class="token string">'Your last name?'</span><span class="token punctuation">,</span> value<span class="token operator">=</span>person<span class="token punctuation">.</span>last_name<span class="token punctuation">)</span><br>    <span class="token punctuation">)</span><br>    view<span class="token punctuation">.</span>jump<span class="token punctuation">(</span>ask_father_name<span class="token punctuation">)</span><br><br><br><span class="token keyword">def</span> <span class="token function">ask_father_name</span><span class="token punctuation">(</span>view<span class="token punctuation">:</span> View<span class="token punctuation">)</span><span class="token punctuation">:</span><br>    father<span class="token punctuation">:</span> Person <span class="token operator">=</span> view<span class="token punctuation">.</span>context<span class="token punctuation">[</span><span class="token string">'state'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>father<br>    father<span class="token punctuation">.</span>first_name<span class="token punctuation">,</span> father<span class="token punctuation">.</span>last_name <span class="token operator">=</span> view<span class="token punctuation">(</span><br>        <span class="token string-interpolation"><span class="token string">f"# Step 2"</span></span><span class="token punctuation">,</span><br>        box<span class="token punctuation">(</span><span class="token string">"Father's first name?"</span><span class="token punctuation">,</span> value<span class="token operator">=</span>father<span class="token punctuation">.</span>first_name<span class="token punctuation">)</span><span class="token punctuation">,</span><br>        box<span class="token punctuation">(</span><span class="token string">"Father's last name?"</span><span class="token punctuation">,</span> value<span class="token operator">=</span>father<span class="token punctuation">.</span>last_name<span class="token punctuation">)</span><br>    <span class="token punctuation">)</span><br>    view<span class="token punctuation">.</span>jump<span class="token punctuation">(</span>ask_mother_name<span class="token punctuation">)</span><br><br><br><span class="token keyword">def</span> <span class="token function">ask_mother_name</span><span class="token punctuation">(</span>view<span class="token punctuation">:</span> View<span class="token punctuation">)</span><span class="token punctuation">:</span><br>    mother<span class="token punctuation">:</span> Person <span class="token operator">=</span> view<span class="token punctuation">.</span>context<span class="token punctuation">[</span><span class="token string">'state'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>mother<br>    mother<span class="token punctuation">.</span>first_name<span class="token punctuation">,</span> mother<span class="token punctuation">.</span>last_name <span class="token operator">=</span> view<span class="token punctuation">(</span><br>        <span class="token string-interpolation"><span class="token string">f"# Step 3"</span></span><span class="token punctuation">,</span><br>        box<span class="token punctuation">(</span><span class="token string">"Mother's first name?"</span><span class="token punctuation">,</span> value<span class="token operator">=</span>mother<span class="token punctuation">.</span>first_name<span class="token punctuation">)</span><span class="token punctuation">,</span><br>        box<span class="token punctuation">(</span><span class="token string">"Mother's last name?"</span><span class="token punctuation">,</span> value<span class="token operator">=</span>mother<span class="token punctuation">.</span>last_name<span class="token punctuation">)</span><br>    <span class="token punctuation">)</span><br>    view<span class="token punctuation">.</span>jump<span class="token punctuation">(</span>show_results<span class="token punctuation">)</span><br><br><br><span class="token keyword">def</span> <span class="token function">show_results</span><span class="token punctuation">(</span>view<span class="token punctuation">:</span> View<span class="token punctuation">)</span><span class="token punctuation">:</span><br>    state<span class="token punctuation">:</span> State <span class="token operator">=</span> view<span class="token punctuation">.</span>context<span class="token punctuation">[</span><span class="token string">'state'</span><span class="token punctuation">]</span><br>    view<span class="token punctuation">(</span><br>        <span class="token string-interpolation"><span class="token string">f"# Results"</span></span><span class="token punctuation">,</span><br>        <span class="token string-interpolation"><span class="token string">f"Your name: </span><span class="token interpolation"><span class="token punctuation">{</span>state<span class="token punctuation">.</span>person<span class="token punctuation">.</span>first_name<span class="token punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token punctuation">{</span>state<span class="token punctuation">.</span>person<span class="token punctuation">.</span>last_name<span class="token punctuation">}</span></span><span class="token string">."</span></span><span class="token punctuation">,</span><br>        <span class="token string-interpolation"><span class="token string">f"Your father's name: </span><span class="token interpolation"><span class="token punctuation">{</span>state<span class="token punctuation">.</span>father<span class="token punctuation">.</span>first_name<span class="token punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token punctuation">{</span>state<span class="token punctuation">.</span>father<span class="token punctuation">.</span>last_name<span class="token punctuation">}</span></span><span class="token string">."</span></span><span class="token punctuation">,</span><br>        <span class="token string-interpolation"><span class="token string">f"Your mother's name: </span><span class="token interpolation"><span class="token punctuation">{</span>state<span class="token punctuation">.</span>mother<span class="token punctuation">.</span>last_name<span class="token punctuation">}</span></span><span class="token string"> </span><span class="token interpolation"><span class="token punctuation">{</span>state<span class="token punctuation">.</span>mother<span class="token punctuation">.</span>last_name<span class="token punctuation">}</span></span><span class="token string">."</span></span><span class="token punctuation">,</span><br>        halt<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span><br>    <span class="token punctuation">)</span><br><br><br><span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>view<span class="token punctuation">:</span> View<span class="token punctuation">)</span><span class="token punctuation">:</span><br>    view<span class="token punctuation">.</span>context<span class="token punctuation">[</span><span class="token string">'state'</span><span class="token punctuation">]</span> <span class="token operator">=</span> State<span class="token punctuation">(</span><span class="token punctuation">)</span><br>    view<span class="token punctuation">(</span><br>        <span class="token string">'# Welcome to the wizard!'</span><span class="token punctuation">,</span><br>        <span class="token string">'Use the back button, Luke!'</span><br>    <span class="token punctuation">)</span><br>    view<span class="token punctuation">.</span>jump<span class="token punctuation">(</span>ask_name<span class="token punctuation">)</span><br><br><br>nitro <span class="token operator">=</span> View<span class="token punctuation">(</span><br>    main<span class="token punctuation">,</span><br>    title<span class="token operator">=</span><span class="token string">'Hello Nitro!'</span><span class="token punctuation">,</span><br>    caption<span class="token operator">=</span><span class="token string">'v1.0'</span><span class="token punctuation">,</span><br>    routes<span class="token operator">=</span><span class="token punctuation">[</span><br>        option<span class="token punctuation">(</span>ask_name<span class="token punctuation">)</span><span class="token punctuation">,</span><br>        option<span class="token punctuation">(</span>ask_father_name<span class="token punctuation">)</span><span class="token punctuation">,</span><br>        option<span class="token punctuation">(</span>ask_mother_name<span class="token punctuation">)</span><span class="token punctuation">,</span><br>        option<span class="token punctuation">(</span>show_results<span class="token punctuation">)</span><span class="token punctuation">,</span><br>    <span class="token punctuation">]</span><span class="token punctuation">,</span><br><span class="token punctuation">)</span><br></code></pre>
+<p><a href="https://gist.github.com/lo5/2d1fe22123ce84ec60c1ba9fa6e6d6cb">Complete source</a></p>
+<h2 id="summary" tabindex="-1">Summary <a class="direct-link" href="#summary" aria-hidden="true">#</a></h2>
+<p>Compared to vanilla Nitro apps, the solution above adds about 3 extra lines of code per page:</p>
+<ol>
+<li>The function <code>def</code>.</li>
+<li>Reading the existing state.</li>
+<li>Jumping to the next view.</li>
+</ol>
+<p>Overall, I'm happy with the solution so far. There's a possibility that the you might forget to add one or more functions to the View's <code>routes</code> list, but this can be mitigated easily by having a custom <code>@route</code> annotation do this automatically for you.</p>
+<p>Happy hacking!</p>
+
+
+<div class="post-tags"><span><a href="/tags/nitro/" class="post-tag">#nitro</a> </span
+</div>
+<div class="post-paging">
+  <span>&laquo; <a href="/posts/revertible-python-dict/">A Revertible Python dictionary</a></span>
+  <span></span>
+</div>
+
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <!-- Current page: /posts/back-button-support/ -->
+  </body>
+</html>
